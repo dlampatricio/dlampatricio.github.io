@@ -7,18 +7,14 @@ export default function MuseumCarousel({ images }: { images: {src: string, alt: 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollAmount, setScrollAmount] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
 
-  // 1. Calculamos cuánto debe desplazarse la imagen exactamente
-  const calculateScroll = () => {
-    if (imgRef.current && containerRef.current) {
-      const imgHeight = imgRef.current.offsetHeight;
+  const calculateScroll = (imgTarget: HTMLImageElement) => {
+    if (containerRef.current) {
+      const imgHeight = imgTarget.offsetHeight;
       const containerHeight = containerRef.current.offsetHeight;
       
-      // Solo desplazamos si la imagen es más alta que el contenedor
-      if (imgHeight > containerHeight) {
-        // El cálculo es: (Altura Imagen - Altura Contenedor)
-        // Lo ponemos en negativo para el eje Y
+      // Solo si la imagen es sustancialmente más larga, activamos el scroll
+      if (imgHeight > containerHeight + 10) {
         setScrollAmount(-(imgHeight - containerHeight));
       } else {
         setScrollAmount(0);
@@ -34,10 +30,11 @@ export default function MuseumCarousel({ images }: { images: {src: string, alt: 
   }, [images.length]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto">
+    <div className="w-full">
       <div 
         ref={containerRef}
-        className="relative aspect-16/10 overflow-hidden bg-white rounded-sm"
+        // Usamos bg-zinc-50 o un gris muy claro para que el "blanco" no sea tan duro
+        className="relative aspect-video sm:aspect-[16/10] overflow-hidden rounded-sm"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -45,37 +42,42 @@ export default function MuseumCarousel({ images }: { images: {src: string, alt: 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className="absolute inset-0 w-full h-full"
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0 w-full h-full flex items-center justify-center"
           >
-            <div className="relative w-full h-full overflow-hidden">
-              <motion.div 
-                key={`scroll-${currentIndex}-${scrollAmount}`}
-                animate={{ 
-                  y: [0, scrollAmount, 0] 
-                }}
-                transition={{ 
-                  duration: 20, 
-                  repeat: Infinity, 
-                  ease: "linear",
-                  delay: 1
-                }}
-                className="absolute top-0 left-0 w-full"
-              >
-                <Image
-                  ref={imgRef}
-                  src={images[currentIndex].src}
-                  alt={images[currentIndex].alt}
-                  width={1200}
-                  height={5000}
-                  className="w-full h-auto"
-                  onLoadingComplete={calculateScroll}
-                  priority
-                />
-              </motion.div>
-            </div>
+            <motion.div 
+              key={`scroll-${currentIndex}-${scrollAmount}`}
+              animate={scrollAmount !== 0 ? { y: [0, scrollAmount, 0] } : { y: 0 }}
+              transition={{ 
+                duration: 15, 
+                repeat: Infinity, 
+                ease: "easeInOut", // easeInOut es más natural para fotos pequeñas
+                delay: 1
+              }}
+              className="absolute top-0 left-0 w-full"
+            >
+              <Image
+                src={images[currentIndex].src}
+                alt={images[currentIndex].alt}
+                width={1200}
+                height={800} // Valor base, h-auto lo ajustará
+                className="w-full h-auto min-h-full object-cover" // "min-h-full" evita el espacio blanco si la imagen es corta
+                onLoadingComplete={(target) => calculateScroll(target as HTMLImageElement)}
+                priority
+              />
+            </motion.div>
           </motion.div>
         </AnimatePresence>
+
+        {/* Indicadores Minimalistas (opcional, para reforzar el look de museo) */}
+        <div className="absolute bottom-4 right-4 flex gap-2">
+           {images.map((_, i) => (
+             <div 
+               key={i} 
+               className={`h-1 transition-all duration-500 ${i === currentIndex ? 'w-4 bg-emerald-800' : 'w-1 bg-zinc-300'}`} 
+             />
+           ))}
+        </div>
       </div>
     </div>
   );

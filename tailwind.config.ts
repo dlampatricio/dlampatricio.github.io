@@ -10,22 +10,53 @@ export default {
   theme: {
     extend: {
       colors: {
-        green: {
-          900: "#14532d",
-          400: "#4ade80",
+        emerald: {
+          50: "#ecfdf5",
+          100: "#d1fae5",
+          200: "#a7f3d0",
+          300: "#6ee7b7",
+          400: "#34d399",
+          500: "#10b981",
+          600: "#059669",
+          700: "#047857",
+          800: "#065f46",
+          900: "#064e3b",
         },
-        gray: {
-          900: "#111827",
-          800: "#1f2937",
-          700: "#374151",
-          600: "#6b7280",
-          500: "#6b7280",
-          400: "#9ca3af",
-          300: "#d1d5db",
-          200: "#e5e7eb",
-          100: "#f3f4f6",
+        zinc: {
+          50: "#fafafa",
+          100: "#f4f4f5",
+          200: "#e4e4e7",
+          300: "#d4d4d8",
+          400: "#a1a1aa",
+          500: "#71717a",
+          600: "#52525b",
+          700: "#3f3f46",
+          800: "#27272a",
+          900: "#18181b",
         }
       },
+      fontFamily: {
+        serif: ["var(--font-serif)"],
+        mono: ["var(--font-mono)"],
+        sans: ["var(--font-sans)"],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '120': '30rem',
+      },
+      letterSpacing: {
+        'tightest': '-.075em',
+        'tighter': '-.05em',
+        'tight': '-.025em',
+        'normal': '0em',
+        'wide': '.025em',
+        'wider': '.05em',
+        'widest': '.1em',
+        'widest2': '.3em',
+        'widest3': '.4em',
+        'widest4': '.5em',
+      }
     },
   },
   plugins: [],

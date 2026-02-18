@@ -6,14 +6,15 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function MuseumCarousel({ images }: Readonly<{ images: {src: string, alt: string}[] }>) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollAmount, setScrollAmount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true); // Control para evitar el flash amarillo
   const containerRef = useRef<HTMLDivElement>(null);
 
   const calculateScroll = (imgTarget: HTMLImageElement) => {
+    setIsLoading(false); // La imagen ya cargó
     if (containerRef.current) {
       const imgHeight = imgTarget.offsetHeight;
       const containerHeight = containerRef.current.offsetHeight;
       
-      // Solo si la imagen es sustancialmente más larga, activamos el scroll
       if (imgHeight > containerHeight + 10) {
         setScrollAmount(-(imgHeight - containerHeight));
       } else {
@@ -21,6 +22,11 @@ export default function MuseumCarousel({ images }: Readonly<{ images: {src: stri
       }
     }
   };
+
+  // Reset del estado de carga cuando cambia la imagen
+  useEffect(() => {
+    setIsLoading(true);
+  }, [currentIndex]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,9 +39,22 @@ export default function MuseumCarousel({ images }: Readonly<{ images: {src: stri
     <div className="w-full">
       <div 
         ref={containerRef}
-        // Usamos bg-zinc-50 o un gris muy claro para que el "blanco" no sea tan duro
-        className="relative aspect-video sm:aspect-16/10 overflow-hidden rounded-sm"
+        className="relative aspect-video sm:aspect-16/10 overflow-hidden rounded-sm bg-zinc-50 border border-zinc-100"
       >
+        {/* Skeleton Loader: Esto reemplaza al flash amarillo */}
+        <AnimatePresence>
+          {isLoading && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 z-10 bg-zinc-50 flex items-center justify-center"
+            >
+              <div className="w-8 h-px bg-emerald-800/20 animate-pulse" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -51,7 +70,7 @@ export default function MuseumCarousel({ images }: Readonly<{ images: {src: stri
               transition={{ 
                 duration: 15, 
                 repeat: Infinity, 
-                ease: "easeInOut", // easeInOut es más natural para fotos pequeñas
+                ease: "easeInOut", 
                 delay: 1
               }}
               className="absolute top-0 left-0 w-full"
@@ -61,22 +80,20 @@ export default function MuseumCarousel({ images }: Readonly<{ images: {src: stri
                 alt={images[currentIndex].alt}
                 width={1200}
                 height={800}
-                className="w-full h-auto"
+                className={`w-full h-auto transition-opacity duration-700 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                 onLoadingComplete={calculateScroll}
-                priority={currentIndex === 0} 
-                placeholder="blur" 
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" 
+                priority={true} // Forzamos carga para evitar el placeholder
               />
             </motion.div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Indicadores Minimalistas (opcional, para reforzar el look de museo) */}
-        <div className="absolute bottom-4 right-4 flex gap-2">
+        {/* Indicadores */}
+        <div className="absolute bottom-4 right-4 flex gap-2 z-20">
            {images.map((_, i) => (
              <div 
                key={i} 
-               className={`h-1 transition-all duration-500 ${i === currentIndex ? 'w-4 bg-emerald-800' : 'w-1 bg-zinc-300'}`} 
+               className={`h-1 transition-all duration-500 ${i === currentIndex ? 'w-4 bg-emerald-800' : 'w-1 bg-zinc-200'}`} 
              />
            ))}
         </div>

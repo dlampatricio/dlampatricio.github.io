@@ -6,7 +6,7 @@ import { Sidebar } from "./components/Sidebar";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400", "500", "600"]
+  weight: ["200", "300", "400", "500", "600"]
 });
 
 const playfair = Playfair_Display({
@@ -17,22 +17,21 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "David Lam — Computer Scientist",
-  description: "Computer Science student at UCLV & Full Stack Developer. Curating digital resilience and functional beauty.",
+  title: "David Lam — Computer Scientist & Architect",
+  description: "Computer Science at UCLV. Specialized in digital resilience and functional beauty through Full Stack Development and DevOps.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-white text-zinc-900`}>
-        <div className="flex min-h-screen">
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-white text-zinc-900 selection:bg-emerald-800/10 selection:text-emerald-900`}>
+        <div className="flex min-h-screen relative">
           <Sidebar />
-          <main className="flex-1 lg:ml-80 bg-white relative transition-all duration-300">
-            {children}
+          {/* Ajuste de padding dinámico y ancho máximo para lectura óptima */}
+          <main className="flex-1 lg:ml-80 bg-white min-w-0 transition-all duration-500 ease-in-out lg:pt-0 pt-16">
+            <div className="max-w-1600px mx-auto">
+              {children}
+            </div>
           </main>
         </div>
       </body>

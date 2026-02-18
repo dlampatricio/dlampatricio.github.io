@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function MuseumCarousel({ images }: { images: {src: string, alt: string}[] }) {
+export default function MuseumCarousel({ images }: Readonly<{ images: {src: string, alt: string}[] }>) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollAmount, setScrollAmount] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ export default function MuseumCarousel({ images }: { images: {src: string, alt: 
       <div 
         ref={containerRef}
         // Usamos bg-zinc-50 o un gris muy claro para que el "blanco" no sea tan duro
-        className="relative aspect-video sm:aspect-[16/10] overflow-hidden rounded-sm"
+        className="relative aspect-video sm:aspect-16/10 overflow-hidden rounded-sm"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -47,7 +47,7 @@ export default function MuseumCarousel({ images }: { images: {src: string, alt: 
           >
             <motion.div 
               key={`scroll-${currentIndex}-${scrollAmount}`}
-              animate={scrollAmount !== 0 ? { y: [0, scrollAmount, 0] } : { y: 0 }}
+              animate={scrollAmount === 0 ? { y: 0 } : { y: [0, scrollAmount, 0] }}
               transition={{ 
                 duration: 15, 
                 repeat: Infinity, 
@@ -60,10 +60,12 @@ export default function MuseumCarousel({ images }: { images: {src: string, alt: 
                 src={images[currentIndex].src}
                 alt={images[currentIndex].alt}
                 width={1200}
-                height={800} // Valor base, h-auto lo ajustará
-                className="w-full h-auto min-h-full object-cover" // "min-h-full" evita el espacio blanco si la imagen es corta
-                onLoadingComplete={(target) => calculateScroll(target as HTMLImageElement)}
-                priority
+                height={800}
+                className="w-full h-auto"
+                onLoadingComplete={calculateScroll}
+                priority={currentIndex === 0} 
+                placeholder="blur" 
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" 
               />
             </motion.div>
           </motion.div>

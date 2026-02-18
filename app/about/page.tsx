@@ -110,12 +110,6 @@ export default function About() {
               desc="Building custom digital platforms with a focus on educational systems and localized e-commerce solutions."
             />
             <ExperienceItem 
-              role="MINEM"
-              company="UCLV Investigation Center"
-              period="2023 — 2025"
-              desc="Applied computational theory to personal and academic projects, focusing on performance and clean architecture."
-            />
-            <ExperienceItem 
               role="Independent Projects"
               company="UCLV Ecosystem"
               period="2022 — 2024"

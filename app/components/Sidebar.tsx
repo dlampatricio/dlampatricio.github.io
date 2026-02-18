@@ -28,29 +28,31 @@ export function Sidebar() {
     <>
       {/* Mobile Menu Button */}
       <button
-        className="lg:hidden fixed top-6 left-6 z-50 p-3 text-zinc-900 hover:text-emerald-800 transition-colors"
+        className="lg:hidden fixed top-6 left-6 z-50 p-2.5 text-zinc-900 hover:text-emerald-800 transition-all duration-300 bg-white/80 backdrop-blur-sm rounded-sm border border-zinc-100 shadow-sm hover:shadow-md"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle navigation menu"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           {isOpen ? (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
           ) : (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
           )}
         </svg>
       </button>
 
+
       {/* Overlay for mobile */}
       {isOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+        <button
+          className="lg:hidden fixed inset-0 bg-black/50 z-30 transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
+          aria-label="Close navigation menu"
         />
       )}
 
       {/* Sidebar Navigation */}
-      <nav className={`w-70 border-r border-zinc-100 p-12 fixed h-full bg-white/95 backdrop-blur-sm z-50 flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${
+      <nav className={`w-72 border-r border-zinc-100 p-12 fixed h-full bg-white/95 backdrop-blur-sm z-50 flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${
         isOpen ? 'translate-x-0' : '-translate-x-full'
       } lg:translate-x-0`}>
         <div className="space-y-32">

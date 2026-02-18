@@ -11,7 +11,7 @@ export function ProjectItem({ title, year, desc, tags, category, id }: ProjectIt
       <div className="py-8 sm:py-12 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12 transition-all duration-1000 ease-out relative overflow-hidden">
         
         {/* Indicador sutil de hover (línea vertical que aparece) */}
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-0 group-hover:h-1/2 bg-emerald-800 transition-all duration-700 ease-in-out" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-0 group-hover:h-1/2 bg-emerald-800 transition-all duration-700 ease-in-out" />
 
         <div className="space-y-8 transition-transform duration-700 group-hover:translate-x-4">
           <div className="flex items-baseline gap-8">

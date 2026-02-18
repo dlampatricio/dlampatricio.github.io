@@ -2,52 +2,116 @@
 import MuseumCarousel from "../components/MuseumCarousel";
 import Link from "next/link";
 
+const PROJECTS_CONFIG = {
+  saitec: {
+    github: null,
+    live: null
+  },
+  broncos: {
+    github: "https://github.com/dlampatricio/broncos-market-frontend", 
+    live: "https://broncosmarket.vercel.app"
+  },
+  angel: {
+    github: null,
+    live: null
+  },
+  cublogs: {
+    github: null,
+    live: null
+  },
+  mclorenz: {
+    github: null,
+    live: null
+  },
+  newton: {
+    github: "https://github.com/dlampatricio/NewtonMethod",
+    live: null
+  },
+  uclib: {
+    github: "https://github.com/dlampatricio/UCLiB",
+    live: null
+  }
+};
+
+const ProjectLinks = ({ links }: { links: { github: string | null; live: string | null } }) => (
+  <div className="flex flex-wrap md:justify-end gap-6 mt-6 pt-6 border-t border-zinc-50">
+    {links.github && (
+      <a 
+        href={links.github} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group/link flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-zinc-400 hover:text-emerald-800 transition-colors duration-300"
+      >
+        <span className="pb-px border-b border-transparent group-hover/link:border-emerald-800/30 transition-all">Source Code</span>
+        <svg className="w-3 h-3 opacity-50 group-hover/link:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
+    )}
+    {links.live && (
+      <a 
+        href={links.live} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="group/link flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-zinc-900 hover:text-emerald-800 transition-colors duration-300"
+      >
+        <span className="pb-px border-b border-zinc-200 group-hover/link:border-emerald-800 transition-all font-semibold">Live Exhibit</span>
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-20"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600/40"></span>
+        </span>
+      </a>
+    )}
+  </div>
+);
+
 export default function Work() {
-  const angelPetsImages = [
-    { src: "/angel_pets/home.png", alt: "Angel Pets Home" },
-    { src: "/angel_pets/dashboard_balance_services-balance.png", alt: "Angel Pets Dashboard Balance" },
-    { src: "/angel_pets/dashboard_sales_animals.png", alt: "Angel Pets Dashboard Sales" },
-    { src: "/angel_pets/dashboard_services_services.png", alt: "Angel Pets Dashboard Services" },
+  // IMAGES DATA
+  const saitecImages = [
+    { src: "/saitec/light/test-saitec.aitec.edu.ec_login.webp", alt: "Saitec Login" },
+    { src: "/saitec/light/test-saitec.aitec.edu.ec_academy.webp", alt: "Saitec Academy" },
+    { src: "/saitec/light/test-saitec.aitec.edu.ec_affiliation.webp", alt: "Saitec Affiliation" },
   ];
 
   const broncosMarketImages = [
-    { src: "/broncos_market/light/broncosmarket.vercel.app_.png", alt: "Broncos Market Home" },
-    { src: "/broncos_market/light/broncosmarket.vercel.app_cart.png", alt: "Broncos Market Cart" },
-    { src: "/broncos_market/light/broncosmarket.vercel.app_category_carnicos.png", alt: "Broncos Market Category" },
-    { src: "/broncos_market/light/broncosmarket.vercel.app_product_jamon-pierna.png", alt: "Broncos Market Product" },
+    { src: "/broncos_market/light/broncosmarket.vercel.app_.webp", alt: "Broncos Market Home" },
+    { src: "/broncos_market/light/broncosmarket.vercel.app_cart.webp", alt: "Broncos Market Cart" },
+    { src: "/broncos_market/light/broncosmarket.vercel.app_category_carnicos.webp", alt: "Broncos Market Category" },
+    { src: "/broncos_market/light/broncosmarket.vercel.app_product_jamon-pierna.webp", alt: "Broncos Market Product" },
   ];
 
-  const saitecImages = [
-    { src: "/saitec/light/test-saitec.aitec.edu.ec_login.png", alt: "Saitec Login" },
-    { src: "/saitec/light/test-saitec.aitec.edu.ec_academy.png", alt: "Saitec Academy" },
-    { src: "/saitec/light/test-saitec.aitec.edu.ec_affiliation.png", alt: "Saitec Affiliation" },
-  ];
-
-  const uclibImages = [
-    { src: "/uclib/dashboard_home.png", alt: "UCLiB Home" },
-    { src: "/uclib/dashboard_users.png", alt: "UCLiB Users" },
-    { src: "/uclib/dashboard_add_item.png", alt: "UCLiB add Item" },
-  ];
-
-  const newtonMethodImages = [
-    { src: "/newtonMethod/home.png", alt: "Newton-Raphson Method Home" },
-    { src: "/newtonMethod/result.png", alt: "Newton-Raphson Method Result" },
+  const angelPetsImages = [
+    { src: "/angel_pets/home.webp", alt: "Angel Pets Home" },
+    { src: "/angel_pets/dashboard_balance_services-balance.webp", alt: "Angel Pets Dashboard Balance" },
+    { src: "/angel_pets/dashboard_sales_animals.webp", alt: "Angel Pets Dashboard Sales" },
+    { src: "/angel_pets/dashboard_services_services.webp", alt: "Angel Pets Dashboard Services" },
   ];
 
   const cuBlogsImages = [
-    { src: "/cuBlogs/blogs.png", alt: "CuBlogs Blogs"},
-    { src: "/cuBlogs/home.png", alt: "CuBlogs Home"},
-    { src: "/cuBlogs/login.png", alt: "CuBlogs Login"},
-    { src: "/cuBlogs/newpost.png", alt: "CuBlogs New Post"},
-    { src: "/cuBlogs/posts.png", alt: "CuBlogs Posts"},
-    { src: "/cuBlogs/register.png", alt: "CuBlogs Register"},
+    { src: "/cuBlogs/blogs.webp", alt: "CuBlogs Blogs"},
+    { src: "/cuBlogs/home.webp", alt: "CuBlogs Home"},
+    { src: "/cuBlogs/login.webp", alt: "CuBlogs Login"},
+    { src: "/cuBlogs/newpost.webp", alt: "CuBlogs New Post"},
+    { src: "/cuBlogs/posts.webp", alt: "CuBlogs Posts"},
+    { src: "/cuBlogs/register.webp", alt: "CuBlogs Register"},
   ];
 
   const mclorenzImages = [
-    { src: "/mclorenz/productos.png", alt: " MCLorenz Productos"},
-    { src: "/mclorenz/cuadre.png", alt: " MCLorenz Cuadre"},
-    { src: "/mclorenz/receta.png", alt: " MCLorenz Receta"}
-  ]
+    { src: "/mclorenz/productos.webp", alt: " MCLorenz Productos"},
+    { src: "/mclorenz/cuadre.webp", alt: " MCLorenz Cuadre"},
+    { src: "/mclorenz/receta.webp", alt: " MCLorenz Receta"}
+  ];
+
+  const newtonMethodImages = [
+    { src: "/newtonMethod/home.webp", alt: "Newton-Raphson Method Home" },
+    { src: "/newtonMethod/result.webp", alt: "Newton-Raphson Method Result" },
+  ];
+
+  const uclibImages = [
+    { src: "/uclib/dashboard_home.webp", alt: "UCLiB Home" },
+    { src: "/uclib/dashboard_users.webp", alt: "UCLiB Users" },
+    { src: "/uclib/dashboard_add_item.webp", alt: "UCLiB add Item" },
+  ];
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 selection:bg-emerald-800 selection:text-white antialiased">
@@ -66,7 +130,6 @@ export default function Work() {
                 A curated selection of digital architectures, focusing on <span className="text-zinc-900 italic">functional beauty</span> and technical resilience.
               </p>
               
-              {/* Main Disclaimer / Curator's Note */}
               <div className="flex items-start gap-4 pt-4 sm:pt-6 border-l-2 border-zinc-100 pl-4 sm:pl-6">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-emerald-800 font-medium mt-1 sm:mt-2">Note:</p>
                 <p className="text-xs sm:text-[10px] text-zinc-500 font-light leading-relaxed max-w-sm sm:max-w-md italic">
@@ -81,253 +144,177 @@ export default function Work() {
         {/* PROJECTS GRID */}
         <main className="space-y-20 sm:space-y-24 md:space-y-32">
 
-          {/* Saitec Project */}
-          <article id="saitec-platform" className="scroll-mt-20 sm:scroll-mt-24 md:scroll-mt-32 group" aria-labelledby="title-saitec">
+          {/* Saitec Platform */}
+          <article id="saitec-platform" className="scroll-mt-32 group">
             <header className="mb-12 space-y-6">
               <div className="flex justify-between items-baseline border-b border-zinc-100 pb-6">
-                <h2 id="title-saitec" className="text-3xl sm:text-4xl font-light tracking-tight text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">
-                  Saitec Platform
-                </h2>
+                <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">Saitec Platform</h2>
                 <span className="text-[10px] font-mono text-zinc-400 tracking-[0.3em]">ARCHIVE / 2026</span>
               </div>
-              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <p className="text-zinc-600 font-light leading-relaxed">
-                  A high-stakes educational ecosystem designed for administrative efficiency. 
-                  Streamlining student management, course lifecycle tracking, and institutional data scaling.
-                </p>
-                <div className="flex flex-wrap md:justify-end gap-3">
-                  {["Docker", "GitLab CI/CD", "Next.js", "Pug", "JSreport", "Moodle API"].map((tag) => (
-                    <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-2 sm:px-3 py-1 text-zinc-400 group-hover:text-emerald-800 group-hover:border-zinc-200 transition-all duration-700 font-medium bg-white">
-                      {tag}
-                    </span>
-                  ))}
+                <p className="text-zinc-600 font-light leading-relaxed">A high-stakes educational ecosystem designed for administrative efficiency. Streamlining student management and institutional data scaling.</p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-wrap md:justify-end gap-3">
+                    {["Docker", "GitLab CI", "Next.js", "JSreport"].map((tag) => (
+                      <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 font-medium bg-white">{tag}</span>
+                    ))}
+                  </div>
+                  <ProjectLinks links={PROJECTS_CONFIG.saitec} />
                 </div>
               </div>
             </header>
-            
-            <div className="relative shadow-lg sm:shadow-xl md:shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden">
-              <MuseumCarousel images={saitecImages} />
-            </div>
-            <p className="mt-4 sm:mt-6 text-[9px] uppercase tracking-[0.2em] text-zinc-400 text-right font-medium italic">
-              * Non-representational institutional data / Sandbox Environment
-            </p>
+            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden"><MuseumCarousel images={saitecImages} /></div>
           </article>
 
-          {/* Broncos Market Project */}
-          <article id="broncos-market" className="scroll-mt-32 group" aria-labelledby="title-broncos">
+          {/* Broncos Market */}
+          <article id="broncos-market" className="scroll-mt-32 group">
             <header className="mb-12 space-y-6">
               <div className="flex justify-between items-baseline border-b border-zinc-100 pb-6">
-                <h2 id="title-broncos" className="text-4xl font-light tracking-tight text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">
-                  Broncos Market
-                </h2>
+                <h2 className="text-4xl font-light text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">Broncos Market</h2>
                 <span className="text-[10px] font-mono text-zinc-500 tracking-[0.3em]">ARCHIVE / 2025</span>
               </div>
-              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <p className="text-zinc-600 font-light leading-relaxed">
-                  A performance-oriented e-commerce engine. Built with a focus on atomic design and seamless state management, delivering a friction-less shopping experience.
-                </p>
-                <div className="flex flex-wrap md:justify-end gap-3">
-                  {["Next.js", "Strapi", "PostgreSQL"].map((tag) => (
-                    <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-2 sm:px-3 py-1 text-zinc-400 group-hover:text-emerald-800 group-hover:border-zinc-200 transition-all duration-700 font-medium bg-white">
-                      {tag}
-                    </span>
-                  ))}
+                <p className="text-zinc-600 font-light leading-relaxed">A performance-oriented e-commerce engine. Built with focus on atomic design and seamless state management.</p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-wrap md:justify-end gap-3">
+                    {["Next.js", "Strapi", "PostgreSQL"].map((tag) => (
+                      <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 font-medium bg-white">{tag}</span>
+                    ))}
+                  </div>
+                  <ProjectLinks links={PROJECTS_CONFIG.broncos} />
                 </div>
               </div>
             </header>
-            
-            <div className="relative shadow-lg sm:shadow-xl md:shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden">
-              <MuseumCarousel images={broncosMarketImages} />
-            </div>
-            <p className="mt-4 sm:mt-6 text-[9px] uppercase tracking-[0.2em] text-zinc-400 text-right font-medium italic">
-              * Simulated transaction logic for UI/UX demonstration
-            </p>
+            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden"><MuseumCarousel images={broncosMarketImages} /></div>
           </article>
 
-          {/* Angel Pets Project */}
-          <article id="angel-pets" className="scroll-mt-32 group" aria-labelledby="title-angel">
+          {/* Angel Pets */}
+          <article id="angel-pets" className="scroll-mt-32 group">
             <header className="mb-12 space-y-6">
               <div className="flex justify-between items-baseline border-b border-zinc-100 pb-6">
-                <h2 id="title-angel" className="text-4xl font-light tracking-tight text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">
-                  Angel Pets
-                </h2>
+                <h2 className="text-4xl font-light text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">Angel Pets</h2>
                 <span className="text-[10px] font-mono text-zinc-500 tracking-[0.3em]">ARCHIVE / 2025</span>
               </div>
-              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <p className="text-zinc-600 font-light leading-relaxed">
-                  A robust management suite for pet services. Developing a comprehensive data-dashboard that transforms complex inventory logic into clear, actionable insights.
-                </p>
-                <div className="flex flex-wrap md:justify-end gap-3">
-                  {["Next.js", "Strapi", "SQLite"].map((tag) => (
-                    <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-2 sm:px-3 py-1 text-zinc-400 group-hover:text-emerald-800 group-hover:border-zinc-200 transition-all duration-700 font-medium bg-white">
-                      {tag}
-                    </span>
-                  ))}
+                <p className="text-zinc-600 font-light leading-relaxed">A robust management suite for pet services. Developing a comprehensive data-dashboard for complex inventory logic.</p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-wrap md:justify-end gap-3">
+                    {["Next.js", "Strapi", "SQLite"].map((tag) => (
+                      <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 font-medium bg-white">{tag}</span>
+                    ))}
+                  </div>
+                  <ProjectLinks links={PROJECTS_CONFIG.angel} />
                 </div>
               </div>
             </header>
-            
-            <div className="relative shadow-lg sm:shadow-xl md:shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden">
-              <MuseumCarousel images={angelPetsImages} />
-            </div>
-            <p className="mt-4 sm:mt-6 text-[9px] uppercase tracking-[0.2em] text-zinc-400 text-right font-medium italic">
-              * Synthetic inventory and customer records / Mock system
-            </p>
+            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden"><MuseumCarousel images={angelPetsImages} /></div>
           </article>
 
           {/* CuBlogs */}
-          <article id="cublogs" className="scroll-mt-32 group" aria-labelledby="title-cublogs">
+          <article id="cublogs" className="scroll-mt-32 group">
             <header className="mb-12 space-y-6">
               <div className="flex justify-between items-baseline border-b border-zinc-100 pb-6">
-                <h2 id="title-cublogs" className="text-4xl font-light tracking-tight text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">
-                  CuBlogs
-                </h2>
+                <h2 className="text-4xl font-light text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">CuBlogs</h2>
                 <span className="text-[10px] font-mono text-zinc-500 tracking-[0.3em]">ARCHIVE / 2024</span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <p className="text-zinc-600 font-light leading-relaxed">
-                  A multi-tenant blogging architecture enabling diverse entities to manage publication lifecycles. 
-                  Features a <span className="text-zinc-900 italic">decoupled content strategy</span> with integrated user authentication and role-based access control.
-                </p>
-                <div className="flex flex-wrap md:justify-end gap-3">
-                  {["Django", "PostgreSQL", "Tailwind CSS", "RESTful"].map((tag) => (
-                    <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 group-hover:text-emerald-800 transition-all duration-700 font-medium">
-                      {tag}
-                    </span>
-                  ))}
+                <p className="text-zinc-600 font-light leading-relaxed">A multi-tenant blogging architecture enabling diverse entities to manage publication lifecycles with decoupled strategy.</p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-wrap md:justify-end gap-3">
+                    {["Django", "PostgreSQL", "Tailwind"].map((tag) => (
+                      <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 font-medium bg-white">{tag}</span>
+                    ))}
+                  </div>
+                  <ProjectLinks links={PROJECTS_CONFIG.cublogs} />
                 </div>
               </div>
             </header>
-            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden">
-              <MuseumCarousel images={cuBlogsImages} />
-            </div>
-            <p className="mt-4 text-[9px] uppercase tracking-[0.2em] text-zinc-400 text-right font-medium italic">* Full-stack publication engine / Demonstration data</p>
+            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden"><MuseumCarousel images={cuBlogsImages} /></div>
           </article>
 
-          {/* MCLorenz Project */}
-          <article id="mclorenz" className="scroll-mt-32 group" aria-labelledby="title-mclorenz">
+          {/* MCLorenz */}
+          <article id="mclorenz" className="scroll-mt-32 group">
             <header className="mb-12 space-y-6">
               <div className="flex justify-between items-baseline border-b border-zinc-100 pb-6">
-                <h2 id="title-mclorenz" className="text-4xl font-light tracking-tight text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">
-                  MCLorenz
-                </h2>
+                <h2 className="text-4xl font-light text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">MCLorenz</h2>
                 <span className="text-[10px] font-mono text-zinc-500 tracking-[0.3em]">ARCHIVE / 2023</span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <p className="text-zinc-600 font-light leading-relaxed">
-                  A dedicated Point of Sale (POS) and resource management system tailored for high-volume fast food environments. 
-                  Engineered to synchronize <span className="text-zinc-900 italic">real-time inventory tracking</span> with automated sales reporting and operational cost analysis.
-                </p>
-                <div className="flex flex-wrap md:justify-end gap-3">
-                  {["Python", "PostgreSQL", "PySide6", "Data Persistence"].map((tag) => (
-                    <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 group-hover:text-emerald-800 transition-all duration-700 font-medium">
-                      {tag}
-                    </span>
-                  ))}
+                <p className="text-zinc-600 font-light leading-relaxed">Point of Sale (POS) and resource management system for high-volume environments. Real-time inventory tracking.</p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-wrap md:justify-end gap-3">
+                    {["Python", "PostgreSQL", "PySide6"].map((tag) => (
+                      <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 font-medium bg-white">{tag}</span>
+                    ))}
+                  </div>
+                  <ProjectLinks links={PROJECTS_CONFIG.mclorenz} />
                 </div>
               </div>
             </header>
-            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden border border-zinc-100">
-              <MuseumCarousel images={mclorenzImages} />
-            </div>
-            <p className="mt-4 text-[9px] uppercase tracking-[0.2em] text-zinc-400 text-right font-medium italic">
-              * Commercial POS infrastructure / Optimized for desktop environments
-            </p>
+            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden border border-zinc-100"><MuseumCarousel images={mclorenzImages} /></div>
           </article>
 
-          {/* Newton-Raphson */}
-          <article id="newton-raphson" className="scroll-mt-32 group" aria-labelledby="title-newton">
+          {/* Newton Solver */}
+          <article id="newton-raphson" className="scroll-mt-32 group">
             <header className="mb-12 space-y-6">
               <div className="flex justify-between items-baseline border-b border-zinc-100 pb-6">
-                <h2 id="title-newton" className="text-4xl font-light tracking-tight text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">
-                  Newton-Raphson Solver
-                </h2>
+                <h2 className="text-4xl font-light text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">Newton-Raphson Solver</h2>
                 <span className="text-[10px] font-mono text-zinc-500 tracking-[0.3em]">ACADEMIC / 2022</span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <p className="text-zinc-600 font-light leading-relaxed">
-                  A mathematical tool implementing numerical analysis for finding real roots of differentiable functions. 
-                  Focused on <span className="text-zinc-900 italic">computational precision</span> and iterative convergence visualization.
-                </p>
-                <div className="flex flex-wrap md:justify-end gap-3">
-                  {["Java", "Numerical Math", "Swing", "Algorithmic Logic"].map((tag) => (
-                    <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 group-hover:text-emerald-800 transition-all duration-700 font-medium">
-                      {tag}
-                    </span>
-                  ))}
+                <p className="text-zinc-600 font-light leading-relaxed">Mathematical tool for finding real roots of differentiable functions. Iterative convergence visualization.</p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-wrap md:justify-end gap-3">
+                    {["Java", "Numerical Math", "Swing"].map((tag) => (
+                      <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 font-medium bg-white">{tag}</span>
+                    ))}
+                  </div>
+                  <ProjectLinks links={PROJECTS_CONFIG.newton} />
                 </div>
               </div>
             </header>
-            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden border border-zinc-100">
-              <MuseumCarousel images={newtonMethodImages} />
-            </div>
-            <p className="mt-4 text-[9px] uppercase tracking-[0.2em] text-zinc-400 text-right font-medium italic">* Desktop-based numerical engine / Scientific Tool</p>
+            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden border border-zinc-100"><MuseumCarousel images={newtonMethodImages} /></div>
           </article>
 
-          {/* UCLiB Project */}
-          <article id="uclib" className="scroll-mt-32 group" aria-labelledby="title-uclib">
+          {/* UCLiB */}
+          <article id="uclib" className="scroll-mt-32 group">
             <header className="mb-12 space-y-6">
               <div className="flex justify-between items-baseline border-b border-zinc-100 pb-6">
-                <h2 id="title-uclib" className="text-4xl font-light tracking-tight text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">
-                  UCLiB
-                </h2>
+                <h2 className="text-4xl font-light text-zinc-900 lowercase group-hover:text-emerald-800 transition-colors duration-500">UCLiB</h2>
                 <span className="text-[10px] font-mono text-zinc-400 tracking-[0.3em]">ACADEMIC / 2022</span>
               </div>
-              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                <p className="text-zinc-600 font-light leading-relaxed">
-                  A desktop-based management engine designed to simulate lifecycle of a university library's inventory. 
-                  Focused on implementation of <span className="text-zinc-900 italic">efficient search algorithms</span> and robust data persistence for large bibliographic collections.
-                </p>
-                <div className="flex flex-wrap md:justify-end gap-3">
-                  {["Java", "OOP", "Swing", "Inventory Logic"].map((tag) => (
-                    <span key={tag} className="text-[9px] uppercase tracking-widest border border-zinc-100 px-3 py-1 text-zinc-500 font-medium group-hover:border-emerald-800/20 group-hover:text-emerald-800 transition-colors duration-500">
-                      {tag}
-                    </span>
-                  ))}
+                <p className="text-zinc-600 font-light leading-relaxed">Library management engine with efficient search algorithms and robust data persistence for bibliographic collections.</p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-wrap md:justify-end gap-3">
+                    {["Java", "OOP", "Swing"].map((tag) => (
+                      <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 px-3 py-1 text-zinc-400 font-medium bg-white">{tag}</span>
+                    ))}
+                  </div>
+                  <ProjectLinks links={PROJECTS_CONFIG.uclib} />
                 </div>
               </div>
             </header>
-            
-            <div className="relative shadow-2xl shadow-zinc-200/40 rounded-sm overflow-hidden border border-zinc-50">
-              <MuseumCarousel images={uclibImages} />
-            </div>
-            <p className="mt-4 sm:mt-6 text-[9px] uppercase tracking-[0.2em] text-zinc-400 text-right font-medium italic">
-              * Simulated bibliographic records and user database / Academic Sandbox
-            </p>
+            <div className="relative shadow-2xl shadow-zinc-200/50 rounded-sm overflow-hidden border border-zinc-50"><MuseumCarousel images={uclibImages} /></div>
           </article>
 
         </main>
 
-        {/* FOOTER REFINADO - Estilo Museo Centrado */}
+        {/* FOOTER */}
         <footer className="mt-20 sm:mt-32 border-t border-zinc-100 pt-24 sm:pt-32 pb-16">
           <div className="max-w-3xl mx-auto text-center space-y-12 sm:space-y-16">
-            
-            {/* Texto de Invitación */}
             <div className="space-y-6">
-              <h3 className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium">
-                Next Chapter
-              </h3>
+              <h3 className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium">Next Chapter</h3>
               <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-zinc-900 leading-tight lowercase tracking-tight">
                 Have a vision for a new system<span className="text-emerald-800 font-serif italic">?</span> <br/>
                 Let's define its <span className="italic font-serif">architecture</span> together.
               </p>
             </div>
-
-            <div className="flex justify-center pt-2 sm:pt-4">
-              <Link 
-                href="/contact" 
-                className="group relative inline-flex items-center gap-4 sm:gap-6 text-[10px] sm:text-[11px] tracking-[0.5em] uppercase font-medium text-zinc-900"
-              >
-                <span className="underline underline-offset-4 decoration-zinc-200 group-hover:decoration-emerald-800 transition-all duration-700 ease-in-out">
-                  Get in Touch
-                </span>
+            <div className="flex justify-center pt-2">
+              <Link href="/contact" className="group relative inline-flex items-center gap-6 text-[10px] tracking-[0.5em] uppercase font-medium text-zinc-900">
+                <span className="underline underline-offset-4 decoration-zinc-200 group-hover:decoration-emerald-800 transition-all duration-700 ease-in-out">Get in Touch</span>
               </Link>
             </div>
-
           </div>
         </footer>
       </div>

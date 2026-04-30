@@ -41,7 +41,7 @@ export default function About() {
               {/* Contenedor con sombra sutil y bordes limpios */}
               <div className="relative aspect-4/5 w-full shadow-[0_20px_50px_rgba(0,0,0,0.05)] rounded-sm overflow-hidden bg-zinc-50">
                 <Image
-                  src="/dlam.jpg"
+                  src="/dlam.png"
                   alt="David Lam - Computer Science Student & Developer"
                   fill
                   className="object-cover brightness-[1.02] contrast-[1.02]"

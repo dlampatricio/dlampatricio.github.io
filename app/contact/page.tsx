@@ -1,10 +1,23 @@
-"use client";
+import type { Metadata } from "next";
 import Link from "next/link";
+import PageTransition from "../components/PageTransition";
+import { LINKS } from "../constants";
+
+export const metadata: Metadata = {
+  title: "Contact — David Lam",
+  description:
+    "Get in touch with David Lam. Available for freelance inquiries and collaborative research projects.",
+  openGraph: {
+    title: "Contact — David Lam",
+    description:
+      "Get in touch with David Lam. Available for freelance inquiries and collaborative research projects.",
+  },
+};
 
 export default function Contact() {
   return (
     // Quitamos h-screen fijo para que los paddings funcionen igual que en las otras páginas
-    <div className="min-h-screen bg-white text-zinc-900 selection:bg-emerald-800 selection:text-white antialiased flex flex-col justify-center">
+    <PageTransition className="min-h-screen bg-white text-zinc-900 selection:bg-emerald-800 selection:text-white antialiased flex flex-col justify-center">
       <div className="max-w-4xl mx-auto px-8 md:px-16 py-32 md:py-48 w-full">
         
         {/* HEADER - Manteniendo la coherencia de Work/About */}
@@ -28,7 +41,7 @@ export default function Contact() {
             <div>
               <h3 className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 mb-8 font-medium">PRIMARY INQUIRIES</h3>
               <a 
-                href="mailto:dlampatricio@gmail.com" 
+                href={LINKS.email} 
                 className="text-2xl sm:text-3xl md:text-4xl font-light text-zinc-900 hover:text-emerald-800 transition-all duration-500 underline underline-offset-4 sm:underline-offset-8 decoration-zinc-100 hover:decoration-emerald-800 break-all"
               >
                 dlampatricio@gmail.com
@@ -85,6 +98,6 @@ export default function Contact() {
           </Link>
         </footer>
       </div>
-    </div>
+    </PageTransition>
   );
 }

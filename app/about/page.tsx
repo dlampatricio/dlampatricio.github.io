@@ -1,10 +1,24 @@
-"use client";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import PageTransition from "../components/PageTransition";
+import { LINKS } from "../constants";
+import type { Experience } from "../types";
+
+export const metadata: Metadata = {
+  title: "About — David Lam",
+  description:
+    "Computer Science student at UCLV. Full Stack Developer & DevOps Architect. Based in Cuba, available worldwide.",
+  openGraph: {
+    title: "About — David Lam",
+    description:
+      "Computer Science student at UCLV. Full Stack Developer & DevOps Architect.",
+  },
+};
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900 selection:bg-emerald-800 selection:text-white antialiased">
+    <PageTransition className="min-h-screen bg-white text-zinc-900 selection:bg-emerald-800 selection:text-white antialiased">
       <div className="max-w-4xl mx-auto px-8 md:px-16 py-32 md:py-48">
         
         {/* HEADER */}
@@ -136,7 +150,7 @@ export default function About() {
             {/* Columna de Acción: Alineada a la derecha y minimalista */}
             <div className="md:col-span-4 flex md:justify-end">
               <Link 
-                href="mailto:dlampatricio@gmail.com" 
+                href={LINKS.email} 
                 className="group flex flex-col items-end"
               >
                 <span className="text-[9px] uppercase tracking-[0.4em] text-zinc-400 mb-2 group-hover:text-emerald-800 transition-colors">Direct Line</span>
@@ -148,11 +162,11 @@ export default function About() {
           </div>
         </footer>
       </div>
-    </div>
+    </PageTransition>
   );
 }
 
-function ExperienceItem({ role, company, period, desc }: any) {
+function ExperienceItem({ role, company, period, desc }: Experience) {
   return (
     <div className="group border-b border-zinc-50 pb-12 last:border-0">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-baseline mb-4 gap-2">

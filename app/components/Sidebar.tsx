@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { LINKS } from "../constants";
 
 interface NavLinkProps {
   readonly href: string;
@@ -8,13 +10,21 @@ interface NavLinkProps {
 }
 
 function NavLink({ href, label, onClick }: NavLinkProps & { onClick?: () => void }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
   return (
     <Link 
       href={href} 
-      className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 transition-all duration-300"
+      className={`group flex items-baseline gap-4 transition-all duration-300 ${
+        isActive ? "text-zinc-900" : "text-zinc-500 hover:text-zinc-900"
+      }`}
       onClick={onClick}
     >
-      <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">
+      <span className="relative text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">
+        {isActive && (
+          <span className="absolute -left-4 top-1/2 -translate-y-1/2 w-[2px] h-4 bg-emerald-800" />
+        )}
         {label}
       </span>
     </Link>
@@ -72,6 +82,19 @@ export function Sidebar() {
             <NavLink href="/about" label="About" onClick={() => setIsOpen(false)} />
             <NavLink href="/work" label="Work" onClick={() => setIsOpen(false)} />
             <NavLink href="/contact" label="Contact" onClick={() => setIsOpen(false)} />
+          </div>
+
+          <div className="space-y-4">
+            <div className="w-12 h-px bg-zinc-200" />
+            <a href={LINKS.github} target="_blank" rel="noopener noreferrer" className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 transition-all duration-300">
+              <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">GitHub</span>
+            </a>
+            <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 transition-all duration-300">
+              <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">LinkedIn</span>
+            </a>
+            <a href={LINKS.cv} target="_blank" rel="noopener noreferrer" className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 transition-all duration-300">
+              <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">Resume</span>
+            </a>
           </div>
         </div>
 

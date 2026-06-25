@@ -19,11 +19,49 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "David Lam — Computer Scientist",
   description: "Computer Science at UCLV. Specialized in digital resilience and functional beauty through Full Stack Development and DevOps.",
+  openGraph: {
+    title: "David Lam — Computer Scientist",
+    description: "Computer Science at UCLV. Specialized in digital resilience and functional beauty.",
+    url: "https://dlampatricio.github.io",
+    siteName: "David Lam Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "David Lam",
+    givenName: "David",
+    familyName: "Lam",
+    jobTitle: "Full Stack Developer & DevOps Architect",
+    description: "Computer Science student at UCLV. Specialized in digital resilience and functional beauty through Full Stack Development and DevOps.",
+    url: "https://dlampatricio.github.io",
+    sameAs: [
+      "https://github.com/dlampatricio",
+      "https://linkedin.com/in/dlampatricio",
+    ],
+    knowsAbout: [
+      "JavaScript", "TypeScript", "Next.js", "React",
+      "Python", "FastAPI", "Docker", "PostgreSQL",
+      "Git", "CI/CD", "System Architecture",
+    ],
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-white text-zinc-900 selection:bg-emerald-800/10 selection:text-emerald-900`}>
         <div className="flex min-h-screen relative">
           <Sidebar />

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function MuseumCarousel({ images }: Readonly<{ images: {src: string, alt: string}[] }>) {
+export default function MuseumCarousel({ images }: Readonly<{ images: readonly {src: string, alt: string}[] }>) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollAmount, setScrollAmount] = useState(0);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());

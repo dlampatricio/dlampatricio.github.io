@@ -70,11 +70,11 @@ export default function Home() {
             <h2 id="work-heading" className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium">
               SELECTED PROJECTS
             </h2>
-            <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono italic" aria-hidden="true">01 — {String(PROJECTS.length).padStart(2, '0')}</span>
+            <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono italic" aria-hidden="true">01 — 03</span>
           </div>
           
           <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
-            {PROJECTS.map((project) => (
+            {PROJECTS.slice(0, 3).map((project) => (
               <ProjectItem key={project.id} {...project} />
             ))}
           </div>

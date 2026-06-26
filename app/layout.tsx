@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     siteName: "David Lam Portfolio",
     locale: "en_US",
     type: "website",
+    images: [{ url: "https://dlampatricio.github.io/og-image.svg", width: 1200, height: 630 }],
   },
   robots: {
     index: true,

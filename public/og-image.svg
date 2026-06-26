@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#09090b"/>
+  <line x1="80" y1="80" x2="80" y2="550" stroke="#065f46" stroke-width="2"/>
+  <text x="120" y="260" font-family="serif" font-size="72" font-weight="700" fill="#f4f4f5" letter-spacing="2">David Lam</text>
+  <text x="120" y="320" font-family="sans-serif" font-size="28" fill="#a1a1aa" letter-spacing="8">COMPUTER SCIENTIST</text>
+  <text x="120" y="380" font-family="sans-serif" font-size="18" fill="#52525b" letter-spacing="4">Full Stack Development — DevOps — System Architecture</text>
+  <line x1="120" y1="430" x2="400" y2="430" stroke="#065f46" stroke-width="1"/>
+  <text x="120" y="480" font-family="sans-serif" font-size="14" fill="#71717a" letter-spacing="2">dlampatricio.github.io</text>
+  <rect x="1000" y="200" width="120" height="120" rx="60" fill="#18181b" stroke="#27272a" stroke-width="1"/>
+  <text x="1060" y="268" font-family="sans-serif" font-size="40" fill="#065f46" text-anchor="middle" font-weight="700">DL</text>
+  <circle cx="1060" cy="320" r="3" fill="#065f46"/>
+</svg>

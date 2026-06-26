@@ -9,6 +9,23 @@ export const LINKS = {
 
 export const PROJECTS: Project[] = [
   {
+    id: 'lamubi',
+    title: 'La Mubi',
+    year: '2026',
+    desc: 'A local multiplayer movie charades game. Teams act out random film titles — with poster, synopsis, rating, director, and genres — without speaking. Features classic team charades and an Impostor mode where one player must fake knowing the movie.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Zustand', 'TMDB API'],
+    category: 'Game • Full-Stack',
+    label: 'FEATURED',
+    github: 'https://github.com/dlampatricio/lamubi',
+    live: 'https://lamubi.vercel.app',
+    images: [
+      { src: '/lamubi/lamubi_home.webp', alt: 'La Mubi Home Screen' },
+      { src: '/lamubi/lamubi_lobby.webp', alt: 'La Mubi Lobby' },
+      { src: '/lamubi/lamubi_handoff.webp', alt: 'La Mubi Handoff Screen' },
+      { src: '/lamubi/lamubi_result.webp', alt: 'La Mubi Result Screen' },
+    ],
+  },
+  {
     id: 'florale',
     title: 'Floralé',
     year: '2026',

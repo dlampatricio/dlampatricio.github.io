@@ -126,7 +126,7 @@ export function Sidebar() {
               <ThemeToggle />
             </div>
           </div>
-          <div className="mt-3 pl-1 text-[8px] uppercase tracking-[0.4em] text-zinc-300 dark:text-zinc-600 font-mono text-center">
+          <div className="mt-3 pl-1 text-[8px] uppercase tracking-[0.4em] dark:text-zinc-300 text-zinc-400 font-mono text-center">
             &copy; 2026 &middot; UCLV, Cuba
           </div>
         </div>

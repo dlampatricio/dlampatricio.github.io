@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import { LINKS } from "../constants";
 import ThemeToggle from "./ThemeToggle";
 
@@ -50,7 +51,7 @@ export function Sidebar() {
   return (
     <>
       <button
-        className="lg:hidden fixed top-6 left-6 z-50 p-2.5 text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-all duration-300 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm rounded-sm border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800"
+        className="lg:hidden fixed top-6 right-6 z-50 p-2.5 text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-all duration-300 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm rounded-sm border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -64,17 +65,25 @@ export function Sidebar() {
         </svg>
       </button>
 
-      {isOpen && (
-        <button
-          className="lg:hidden fixed inset-0 bg-black/50 dark:bg-black/70 z-30 transition-opacity duration-300"
-          onClick={() => setIsOpen(false)}
-          aria-label="Close navigation menu"
-        />
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden fixed inset-0 bg-black/50 dark:bg-black/70 z-30"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close navigation menu"
+          />
+        )}
+      </AnimatePresence>
 
-      <nav className={`w-72 border-r border-zinc-100 dark:border-zinc-800 p-12 fixed h-full bg-white/95 dark:bg-zinc-950/95 backdrop-blur-sm z-50 flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${
-        isOpen ? 'translate-x-0' : '-translate-x-full'
-      } lg:translate-x-0`}>
+      <nav
+        className={`w-72 border-r border-zinc-100 dark:border-zinc-800 p-12 fixed h-full bg-white/95 dark:bg-zinc-950/95 backdrop-blur-sm z-50 flex flex-col justify-between transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        } lg:translate-x-0`}
+      >
         <div className="space-y-32">
           <header>
             <Link href="/" className="group block pl-1" onClick={() => setIsOpen(false)}>

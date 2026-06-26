@@ -14,7 +14,7 @@ const FILTERS = ["All", "FEATURED", "ARCHIVE", "ACADEMIC"] as const;
 function ProjectLinks({ github, live }: { github: string | null; live: string | null }) {
   if (!github && !live) return null;
   return (
-    <div className="flex flex-wrap md:justify-end gap-6 mt-6 pt-6 border-t border-zinc-50 dark:border-zinc-800/50">
+    <div className="flex flex-wrap gap-6 md:justify-end">
       {github && (
         <a
           href={github}
@@ -58,8 +58,8 @@ function ProjectArticle({ project }: { project: Project }) {
 
   return (
     <article id={project.id} className="scroll-mt-32 group">
-      <header className="mb-12 space-y-6">
-        <div className="flex justify-between items-baseline border-b border-zinc-100 dark:border-zinc-800 pb-6">
+      <header className="mb-6">
+        <div className="flex justify-between items-baseline border-b border-zinc-100 dark:border-zinc-800 pb-6 mb-8">
           <h2 className="text-4xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 lowercase group-hover:text-emerald-800 transition-colors duration-500">
             {project.title}
           </h2>
@@ -67,31 +67,19 @@ function ProjectArticle({ project }: { project: Project }) {
             {project.label} / {project.year}
           </span>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <div className="space-y-6">
-            <p className="text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">{project.desc}</p>
-            {project.metrics && (
-              <ul className="space-y-2">
-                {project.metrics.map((m) => (
-                  <li key={m} className="flex items-start gap-3 text-[10px] text-zinc-500 dark:text-zinc-400 font-mono">
-                    <span className="mt-[5px] w-1 h-1 rounded-full bg-emerald-800/40 flex-shrink-0" aria-hidden="true" />
-                    {m}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-wrap md:justify-end gap-2">
-              {project.tags.map((tag: string) => (
-                <span key={tag} className={`text-[8px] sm:text-[9px] uppercase tracking-widest px-2.5 py-1 font-medium rounded-sm ${getTechColor(tag)}`}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <ProjectLinks github={project.github} live={project.live} />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-6">
+          <p className="text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">{project.desc}</p>
+          <div className="flex flex-wrap md:justify-end gap-2">
+            {project.tags.map((tag: string) => (
+              <span key={tag} className={`text-[8px] sm:text-[9px] uppercase tracking-widest px-2.5 py-1 font-medium rounded-sm ${getTechColor(tag)}`}>
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
+
+        <ProjectLinks github={project.github} live={project.live} />
       </header>
       <div className={`relative shadow-2xl shadow-zinc-200/50 dark:shadow-black/30 rounded-sm overflow-hidden ${carouselBorder}`}>
         {project.images && <MuseumCarousel images={project.images} />}

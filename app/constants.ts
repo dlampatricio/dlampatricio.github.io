@@ -16,7 +16,6 @@ export const PROJECTS: Project[] = [
     tags: ['Next.js', 'Supabase', 'Framer Motion', 'Vercel'],
     category: 'E-commerce • Design',
     label: 'FEATURED',
-    metrics: ['Product catalog with 50+ items', 'Real-time cart & checkout', 'Admin dashboard with analytics'],
     github: 'https://github.com/dlampatricio/florale',
     live: 'https://florale-uy.vercel.app',
     images: [
@@ -35,7 +34,6 @@ export const PROJECTS: Project[] = [
     tags: ['Docker', 'GitLab CI/CD', 'Next.js', 'Pug', 'JSreport', 'Moodle API'],
     category: 'Architecture • Platform',
     label: 'FEATURED',
-    metrics: ['10k+ student records managed', 'Automated CI/CD pipeline', 'Multi-institution deployment'],
     github: null,
     live: null,
     images: [
@@ -52,7 +50,6 @@ export const PROJECTS: Project[] = [
     tags: ['Next.js', 'Strapi', 'PostgreSQL'],
     category: 'E-commerce • UX',
     label: 'FEATURED',
-    metrics: ['200+ product SKUs', 'Atomic component library', 'Dark/light theme support'],
     github: 'https://github.com/dlampatricio/broncos-market-frontend',
     live: 'https://broncosmarket.vercel.app',
     images: [
@@ -70,7 +67,6 @@ export const PROJECTS: Project[] = [
     tags: ['Next.js', 'Strapi', 'SQLite'],
     category: 'Systems • Dashboard',
     label: 'FEATURED',
-    metrics: ['Real-time inventory tracking', 'Multi-service dashboard', 'Automated report generation'],
     github: null,
     live: null,
     images: [
@@ -88,7 +84,6 @@ export const PROJECTS: Project[] = [
     tags: ['Django', 'PostgreSQL', 'Tailwind'],
     category: 'Platform • CMS',
     label: 'ARCHIVE',
-    metrics: ['Multi-tenant architecture', 'Role-based access control', 'RESTful API design'],
     github: null,
     live: null,
     images: [
@@ -108,7 +103,6 @@ export const PROJECTS: Project[] = [
     tags: ['Python', 'PostgreSQL', 'PySide6'],
     category: 'Systems • POS',
     label: 'ARCHIVE',
-    metrics: ['Real-time inventory sync', 'Sales reporting engine', 'Multi-user role system'],
     github: null,
     live: null,
     images: [
@@ -125,7 +119,6 @@ export const PROJECTS: Project[] = [
     tags: ['Java', 'Numerical Math', 'Swing'],
     category: 'Academic • Mathematics',
     label: 'ACADEMIC',
-    metrics: ['Interactive convergence visualization', 'Support for any differentiable function', 'Step-by-step iteration display'],
     github: 'https://github.com/dlampatricio/NewtonMethod',
     live: null,
     images: [
@@ -141,7 +134,6 @@ export const PROJECTS: Project[] = [
     tags: ['Java', 'OOP', 'Swing'],
     category: 'Academic • Systems',
     label: 'ACADEMIC',
-    metrics: ['Efficient search algorithms', 'Bibliographic data persistence', 'Clean MVC architecture'],
     github: 'https://github.com/dlampatricio/UCLiB',
     live: null,
     images: [

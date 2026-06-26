@@ -141,7 +141,7 @@ export default function About() {
             <div className="md:col-span-4 flex md:justify-end">
               <Link 
                 href={LINKS.email} 
-                className="group flex flex-col items-end"
+                className="group flex flex-col items-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
               >
                 <span className="text-[9px] uppercase tracking-[0.4em] text-zinc-400 dark:text-zinc-500 mb-2 group-hover:text-emerald-800 transition-colors">Direct Line</span>
                 <span className="text-lg md:text-xl font-light text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-800 group-hover:border-emerald-800 pb-2 transition-all duration-500">

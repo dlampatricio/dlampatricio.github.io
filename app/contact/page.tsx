@@ -24,7 +24,7 @@ export default function Contact() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 lowercase">
               Contact<span className="text-emerald-800 italic font-serif">.</span>
             </h1>
-            <div className="w-16 h-px bg-emerald-800/20"></div>
+            <div className="w-16 h-px bg-emerald-800/20" aria-hidden="true"></div>
             <p className="text-lg sm:text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed max-w-2xl">
               Currently accepting select freelance inquiries and <span className="text-zinc-900 dark:text-zinc-100 italic">collaborative research</span> projects for 2026.
             </p>
@@ -38,7 +38,7 @@ export default function Contact() {
               <h3 className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 mb-8 font-medium">PRIMARY INQUIRIES</h3>
               <a 
                 href={LINKS.email} 
-                className="text-2xl sm:text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-all duration-500 underline underline-offset-4 sm:underline-offset-8 decoration-zinc-100 dark:decoration-zinc-800 hover:decoration-emerald-800 break-all"
+                className="text-2xl sm:text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-all duration-500 underline underline-offset-4 sm:underline-offset-8 decoration-zinc-100 dark:decoration-zinc-800 hover:decoration-emerald-800 break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
               >
                 dlampatricio@gmail.com
               </a>
@@ -68,16 +68,17 @@ export default function Contact() {
                 { name: "Telegram", url: "https://t.me/dlampatricio" },
                 { name: "WhatsApp", url: "https://wa.me/+53811810" },
               ].map((link) => (
-                <a 
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex justify-between items-center text-lg font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                >
-                  <span className="group-hover:italic group-hover:translate-x-2 transition-transform duration-300">{link.name}</span>
-                  <span className="text-[10px] text-zinc-300 dark:text-zinc-600 group-hover:text-emerald-800">↗</span>
-                </a>
+                  <a 
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex justify-between items-center text-lg font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
+                    aria-label={`${link.name} (opens in new tab)`}
+                  >
+                    <span className="group-hover:italic group-hover:translate-x-2 transition-transform duration-300">{link.name}</span>
+                    <span className="text-[10px] text-zinc-300 dark:text-zinc-600 group-hover:text-emerald-800" aria-hidden="true">↗</span>
+                  </a>
               ))}
             </nav>
           </div>
@@ -86,7 +87,7 @@ export default function Contact() {
         <footer className="pt-24 border-t border-zinc-100 dark:border-zinc-800">
            <Link 
             href="/" 
-            className="text-[10px] uppercase tracking-[0.6em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-all duration-300 font-medium"
+            className="text-[10px] uppercase tracking-[0.6em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-all duration-300 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
           >
             ← Back to Home
           </Link>

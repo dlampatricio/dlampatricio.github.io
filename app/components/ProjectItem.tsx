@@ -6,7 +6,7 @@ export function ProjectItem({ title, year, desc, tags, category, id }: ProjectIt
   return (
     <Link 
       href={`/work#${id}`} 
-      className="block group border-b border-zinc-100 dark:border-zinc-800 last:border-0 focus:outline-none" 
+      className="block group border-b border-zinc-100 dark:border-zinc-800 last:border-0 focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm" 
       aria-label={`Project: ${title}, ${desc}`}
     >
       <div className="py-8 sm:py-12 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12 transition-all duration-1000 ease-out relative overflow-hidden">

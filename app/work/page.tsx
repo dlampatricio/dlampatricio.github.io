@@ -20,10 +20,11 @@ function ProjectLinks({ github, live }: { github: string | null; live: string | 
           href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className="group/link flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors duration-300"
+          className="group/link flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
+          aria-label="Source code (opens in new tab)"
         >
           <span className="pb-px border-b border-transparent group-hover/link:border-emerald-800/30 transition-all">Source Code</span>
-          <svg className="w-3 h-3 opacity-50 group-hover/link:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-3 h-3 opacity-50 group-hover/link:opacity-100 transition-opacity" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
         </a>
@@ -33,10 +34,11 @@ function ProjectLinks({ github, live }: { github: string | null; live: string | 
           href={live}
           target="_blank"
           rel="noopener noreferrer"
-          className="group/link flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-colors duration-300"
+          className="group/link flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
+          aria-label="Live exhibit (opens in new tab)"
         >
           <span className="pb-px border-b border-zinc-200 dark:border-zinc-700 group-hover/link:border-emerald-800 transition-all font-semibold">Live Exhibit</span>
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-2 w-2" aria-hidden="true">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-20"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600/40"></span>
           </span>
@@ -72,7 +74,7 @@ function ProjectArticle({ project }: { project: Project }) {
               <ul className="space-y-2">
                 {project.metrics.map((m) => (
                   <li key={m} className="flex items-start gap-3 text-[10px] text-zinc-500 dark:text-zinc-400 font-mono">
-                    <span className="mt-[5px] w-1 h-1 rounded-full bg-emerald-800/40 flex-shrink-0" />
+                    <span className="mt-[5px] w-1 h-1 rounded-full bg-emerald-800/40 flex-shrink-0" aria-hidden="true" />
                     {m}
                   </li>
                 ))}
@@ -142,7 +144,8 @@ export default function Work() {
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`text-[9px] uppercase tracking-[0.3em] px-4 py-2 rounded-sm transition-all duration-300 font-medium ${
+              aria-pressed={activeFilter === f}
+              className={`text-[9px] uppercase tracking-[0.3em] px-4 py-2 rounded-sm transition-all duration-300 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 ${
                 activeFilter === f
                   ? "bg-emerald-800 text-white"
                   : "text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500"
@@ -183,7 +186,7 @@ export default function Work() {
               </p>
             </div>
             <div className="flex justify-center pt-2">
-              <Link href="/contact" className="group relative inline-flex items-center gap-6 text-[10px] tracking-[0.5em] uppercase font-medium text-zinc-900 dark:text-zinc-100">
+              <Link href="/contact" className="group relative inline-flex items-center gap-6 text-[10px] tracking-[0.5em] uppercase font-medium text-zinc-900 dark:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1">
                 <span className="underline underline-offset-4 decoration-zinc-200 dark:decoration-zinc-700 group-hover:decoration-emerald-800 transition-all duration-700 ease-in-out">Get in Touch</span>
               </Link>
             </div>

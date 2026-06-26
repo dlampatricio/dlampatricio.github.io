@@ -47,7 +47,7 @@ export default function CV() {
               </h1>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 font-light mt-2">Full Stack Developer &amp; DevOps Architect</p>
             </div>
-            <Link href={LINKS.email} className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors">
+            <Link href={LINKS.email} className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1">
               dlampatricio@gmail.com
             </Link>
           </div>
@@ -115,14 +115,15 @@ export default function CV() {
         </Section>
 
         <footer className="mt-32 pt-12 border-t border-zinc-100 dark:border-zinc-800 flex justify-between items-center">
-          <Link href="/" className="text-[10px] uppercase tracking-[0.4em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors">
+          <Link href="/" className="text-[10px] uppercase tracking-[0.4em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1">
             ← Back to Portfolio
           </Link>
           <Link
             href={LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400 hover:text-emerald-800 transition-colors"
+            className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400 hover:text-emerald-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
+            aria-label="LinkedIn (opens in new tab)"
           >
             LinkedIn ↗
           </Link>

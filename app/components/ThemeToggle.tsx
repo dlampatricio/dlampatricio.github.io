@@ -18,7 +18,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-100 transition-all duration-300"
+      className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-100 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
     >
       <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">

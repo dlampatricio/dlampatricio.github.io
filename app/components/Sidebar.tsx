@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { LINKS } from "../constants";
 import ThemeToggle from "./ThemeToggle";
@@ -17,10 +17,11 @@ function NavLink({ href, label, onClick }: NavLinkProps & { onClick?: () => void
   return (
     <Link 
       href={href} 
-      className={`group flex items-baseline gap-4 transition-all duration-300 ${
+      className={`group flex items-baseline gap-4 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1 ${
         isActive ? "text-zinc-900 dark:text-zinc-100" : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
       }`}
       onClick={onClick}
+      aria-current={isActive ? "page" : undefined}
     >
       <span className="relative text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">
         {isActive && (
@@ -35,12 +36,24 @@ function NavLink({ href, label, onClick }: NavLinkProps & { onClick?: () => void
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const close = useCallback(() => setIsOpen(false), []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [isOpen, close]);
+
   return (
     <>
       <button
-        className="lg:hidden fixed top-6 left-6 z-50 p-2.5 text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-all duration-300 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm rounded-sm border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-md"
+        className="lg:hidden fixed top-6 left-6 z-50 p-2.5 text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-all duration-300 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm rounded-sm border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800"
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle navigation menu"
+        aria-expanded={isOpen}
+        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           {isOpen ? (
@@ -81,19 +94,19 @@ export function Sidebar() {
             <NavLink href="/contact" label="Contact" onClick={() => setIsOpen(false)} />
           </div>
 
-          <div className="space-y-4">
-            <div className="w-12 h-px bg-zinc-200 dark:bg-zinc-700" />
-            <a href={LINKS.github} target="_blank" rel="noopener noreferrer" className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300">
-              <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">GitHub</span>
-            </a>
-            <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300">
-              <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">LinkedIn</span>
-            </a>
-            <a href={LINKS.cv} target="_blank" rel="noopener noreferrer" className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300">
-              <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">Resume</span>
-            </a>
-            <ThemeToggle />
-          </div>
+            <div className="space-y-4">
+              <div className="w-12 h-px bg-zinc-200 dark:bg-zinc-700" />
+              <a href={LINKS.github} target="_blank" rel="noopener noreferrer" className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1" aria-label="GitHub (opens in new tab)">
+                <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">GitHub</span>
+              </a>
+              <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1" aria-label="LinkedIn (opens in new tab)">
+                <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">LinkedIn</span>
+              </a>
+              <a href={LINKS.cv} target="_blank" rel="noopener noreferrer" className="group flex items-baseline gap-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1" aria-label="Resume (opens in new tab)">
+                <span className="text-xs uppercase tracking-[0.5em] font-medium group-hover:translate-x-1 transition-transform">Resume</span>
+              </a>
+              <ThemeToggle />
+            </div>
         </div>
 
         <div className="space-y-8">

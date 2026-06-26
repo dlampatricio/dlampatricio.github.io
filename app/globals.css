@@ -2,11 +2,22 @@
 
 @variant dark (&:where(.dark, .dark *));
 
-* {
-  box-sizing: border-box;
-  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-              background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    box-sizing: border-box;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 :root {
@@ -46,20 +57,20 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e5e5e5;
+  background: #a1a1aa;
   border-radius: 3px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #52525b;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4d4d4;
+  background: #71717a;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: #a1a1aa;
 }
 
 ::selection {

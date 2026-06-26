@@ -53,9 +53,10 @@ export default function Home() {
                 href={LINKS.cv}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-colors font-medium"
+                className="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-zinc-900 dark:text-zinc-100 hover:text-emerald-800 transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
+                aria-label="Download CV (opens in new tab)"
               >
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 <span className="border-b border-zinc-200 dark:border-zinc-700 group-hover:border-emerald-800 transition-all pb-px">Download CV</span>
@@ -66,7 +67,7 @@ export default function Home() {
 
         <Reveal delay={0.1}><section className="mb-32" aria-labelledby="work-heading">
           <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mb-20 border-b border-zinc-100 dark:border-zinc-800 pb-6">
-            <h2 className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium">
+            <h2 id="work-heading" className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium">
               SELECTED PROJECTS
             </h2>
             <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono italic" aria-hidden="true">01 — {String(PROJECTS.length).padStart(2, '0')}</span>
@@ -96,7 +97,7 @@ export default function Home() {
               <h2 id="writing-heading" className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium">
                 WRITING
               </h2>
-              <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono italic">Thoughts &amp; Reflections</span>
+              <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono italic" aria-hidden="true">Thoughts &amp; Reflections</span>
             </div>
             <Writing />
           </section>

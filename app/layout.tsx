@@ -55,18 +55,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-white text-zinc-900 selection:bg-emerald-800/10 selection:text-emerald-900`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-emerald-800/10 selection:text-emerald-900`}>
         <div className="flex min-h-screen relative">
           <Sidebar />
-          {/* Ajuste de padding dinámico y ancho máximo para lectura óptima */}
-          <main className="flex-1 lg:ml-80 bg-white min-w-0 transition-all duration-500 ease-in-out lg:pt-0 pt-16">
+          <main className="flex-1 lg:ml-72 bg-white dark:bg-zinc-950 min-w-0 transition-all duration-500 ease-in-out lg:pt-0 pt-16">
             <div className="max-w-1600px mx-auto">
               {children}
             </div>

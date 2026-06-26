@@ -8,7 +8,7 @@ export function SkillGroup({ title, skills }: SkillGroupProps) {
       </h3>
       <ul className="space-y-6">
         {skills.map((skill: string) => (
-          <li key={skill} className="text-sm text-zinc-600 font-medium tracking-tight hover:text-zinc-900 transition-colors cursor-default">
+          <li key={skill} className="text-sm text-zinc-600 dark:text-zinc-400 font-medium tracking-tight hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-default">
             {skill}
           </li>
         ))}

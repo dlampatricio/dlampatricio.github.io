@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <section className="mb-20 border-t border-zinc-100 pt-12 first:border-0 first:pt-0">
+  <section className="mb-20 border-t border-zinc-100 dark:border-zinc-800 pt-12 first:border-0 first:pt-0">
     <h2 className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium mb-8">{title}</h2>
     {children}
   </section>
@@ -27,27 +27,27 @@ const Entry = ({
 }) => (
   <div className="mb-8 last:mb-0">
     <div className="flex justify-between items-baseline mb-1">
-      <h3 className="text-lg font-medium text-zinc-900">{title}</h3>
-      <span className="text-[10px] font-mono text-zinc-400 tracking-wider">{period}</span>
+      <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">{title}</h3>
+      <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 tracking-wider">{period}</span>
     </div>
     <p className="text-sm text-emerald-800 font-medium mb-2">{subtitle}</p>
-    <p className="text-sm text-zinc-500 font-light leading-relaxed">{desc}</p>
+    <p className="text-sm text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">{desc}</p>
   </div>
 );
 
 export default function CV() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900 antialiased">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
       <div className="max-w-3xl mx-auto px-8 md:px-16 py-32 md:py-48">
         <header className="mb-24">
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-4xl sm:text-5xl font-light tracking-tight text-zinc-900 lowercase">
+              <h1 className="text-4xl sm:text-5xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 lowercase">
                 David Lam<span className="text-emerald-800 italic font-serif">.</span>
               </h1>
-              <p className="text-sm text-zinc-500 font-light mt-2">Full Stack Developer & DevOps Architect</p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 font-light mt-2">Full Stack Developer &amp; DevOps Architect</p>
             </div>
-            <Link href={LINKS.email} className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 hover:text-emerald-800 transition-colors">
+            <Link href={LINKS.email} className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors">
               dlampatricio@gmail.com
             </Link>
           </div>
@@ -87,7 +87,7 @@ export default function CV() {
             ].map((group) => (
               <div key={group.cat}>
                 <h3 className="text-[9px] uppercase tracking-[0.3em] text-emerald-800 font-medium mb-3">{group.cat}</h3>
-                <p className="text-sm text-zinc-600 font-light">{group.items}</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 font-light">{group.items}</p>
               </div>
             ))}
           </div>
@@ -114,15 +114,15 @@ export default function CV() {
           />
         </Section>
 
-        <footer className="mt-32 pt-12 border-t border-zinc-100 flex justify-between items-center">
-          <Link href="/" className="text-[10px] uppercase tracking-[0.4em] text-zinc-400 hover:text-emerald-800 transition-colors">
+        <footer className="mt-32 pt-12 border-t border-zinc-100 dark:border-zinc-800 flex justify-between items-center">
+          <Link href="/" className="text-[10px] uppercase tracking-[0.4em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors">
             ← Back to Portfolio
           </Link>
           <Link
             href={LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 hover:text-emerald-800 transition-colors"
+            className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400 hover:text-emerald-800 transition-colors"
           >
             LinkedIn ↗
           </Link>

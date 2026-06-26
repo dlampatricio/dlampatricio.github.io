@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 * {
   box-sizing: border-box;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
@@ -22,7 +24,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Typography refinements */
 .serif {
   font-family: var(--font-serif);
 }
@@ -31,13 +32,11 @@ body {
   font-family: var(--font-mono);
 }
 
-
 a {
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Subtle scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -51,11 +50,18 @@ a {
   border-radius: 3px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #d4d4d4;
 }
 
-/* Selection styling */
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
 ::selection {
   background: #064e3b;
   color: white;

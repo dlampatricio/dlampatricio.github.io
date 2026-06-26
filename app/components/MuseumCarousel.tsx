@@ -38,7 +38,7 @@ export default function MuseumCarousel({ images }: Readonly<{ images: readonly {
     <div className="w-full">
       <div 
         ref={containerRef}
-        className="relative aspect-video sm:aspect-16/10 overflow-hidden rounded-sm bg-white"
+        className="relative aspect-video sm:aspect-16/10 overflow-hidden rounded-sm bg-white dark:bg-zinc-950"
       >
         {/* INDICADOR DE CARGA ULTRA-MINIMALISTA */}
         <AnimatePresence>
@@ -95,7 +95,7 @@ export default function MuseumCarousel({ images }: Readonly<{ images: readonly {
                className="group p-2 -m-2" // Área de clic más grande
              >
                <div className={`h-[2px] transition-all duration-700 ${
-                 i === currentIndex ? 'w-6 bg-emerald-800' : 'w-2 bg-zinc-200 group-hover:bg-zinc-300'
+                 i === currentIndex ? 'w-6 bg-emerald-800' : 'w-2 bg-zinc-200 dark:bg-zinc-700 group-hover:bg-zinc-300 dark:group-hover:bg-zinc-600'
                }`} />
              </button>
            ))}

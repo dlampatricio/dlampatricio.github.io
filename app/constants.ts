@@ -151,6 +151,19 @@ export const SKILLS = [
   { title: 'Philosophy', skills: ['Clean Code', 'UX Systems', 'Performance', 'Scalability'] },
 ] as const;
 
+export const TESTIMONIALS = [
+  {
+    quote: "David brought a level of technical precision and architectural thinking that transformed our platform. His ability to bridge academic theory with production-ready code is exceptional.",
+    author: "Prof. Alejandro Rodríguez",
+    role: "Computer Science Department, UCLV",
+  },
+  {
+    quote: "Working with David was remarkable. He doesn't just write code — he designs systems. His attention to performance and clean architecture made a significant impact on our e-commerce platform.",
+    author: "María González",
+    role: "Project Lead, Freelance Collaboration",
+  },
+] as const;
+
 export const FOOTER_LINKS = [
   { href: '/work', label: 'View All Work', external: false },
   { href: 'https://github.com/dlampatricio', label: 'GitHub', external: true },

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getTechColor } from "../lib/tech-colors";
 import type { ProjectItemProps } from "../types";
 
 export function ProjectItem({ title, year, desc, tags, category, id }: ProjectItemProps) {
@@ -39,7 +40,7 @@ export function ProjectItem({ title, year, desc, tags, category, id }: ProjectIt
           {tags.map((tag: string) => (
             <span 
               key={tag} 
-              className="text-[8px] uppercase tracking-[0.3em] border border-zinc-100 dark:border-zinc-800 px-3 sm:px-4 py-2 text-zinc-400 dark:text-zinc-500 group-hover:text-emerald-800 group-hover:border-zinc-200 dark:group-hover:border-zinc-700 transition-all duration-700 font-bold bg-white dark:bg-zinc-950"
+              className={`text-[8px] uppercase tracking-[0.3em] px-3 sm:px-4 py-1.5 font-bold rounded-sm transition-opacity duration-700 ${getTechColor(tag)}`}
             >
               {tag}
             </span>

@@ -9,6 +9,13 @@ export interface Project {
   readonly github: string | null;
   readonly live: string | null;
   readonly images: readonly { src: string; alt: string }[] | null;
+  readonly metrics?: readonly string[];
+}
+
+export interface WritingEntry {
+  readonly title: string;
+  readonly excerpt: string;
+  readonly url?: string;
 }
 
 export type ProjectItemProps = Project;

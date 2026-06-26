@@ -1,11 +1,15 @@
 "use client";
+import { useState, useMemo } from "react";
 import MuseumCarousel from "../components/MuseumCarousel";
 import BackToTop from "../components/BackToTop";
 import Reveal from "../components/Reveal";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { PROJECTS } from "../constants";
+import { getTechColor } from "../lib/tech-colors";
 import type { Project } from "../types";
+
+const FILTERS = ["All", "FEATURED", "ARCHIVE", "ACADEMIC"] as const;
 
 function ProjectLinks({ github, live }: { github: string | null; live: string | null }) {
   if (!github && !live) return null;
@@ -62,11 +66,23 @@ function ProjectArticle({ project }: { project: Project }) {
           </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <p className="text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">{project.desc}</p>
+          <div className="space-y-6">
+            <p className="text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">{project.desc}</p>
+            {project.metrics && (
+              <ul className="space-y-2">
+                {project.metrics.map((m) => (
+                  <li key={m} className="flex items-start gap-3 text-[10px] text-zinc-500 dark:text-zinc-400 font-mono">
+                    <span className="mt-[5px] w-1 h-1 rounded-full bg-emerald-800/40 flex-shrink-0" />
+                    {m}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
           <div className="flex flex-col gap-4">
-            <div className="flex flex-wrap md:justify-end gap-3">
+            <div className="flex flex-wrap md:justify-end gap-2">
               {project.tags.map((tag: string) => (
-                <span key={tag} className="text-[8px] sm:text-[9px] uppercase tracking-widest border border-zinc-200 dark:border-zinc-700 px-3 py-1 text-zinc-400 dark:text-zinc-500 font-medium bg-white dark:bg-zinc-900">
+                <span key={tag} className={`text-[8px] sm:text-[9px] uppercase tracking-widest px-2.5 py-1 font-medium rounded-sm ${getTechColor(tag)}`}>
                   {tag}
                 </span>
               ))}
@@ -83,6 +99,13 @@ function ProjectArticle({ project }: { project: Project }) {
 }
 
 export default function Work() {
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+
+  const filtered = useMemo(
+    () => activeFilter === "All" ? PROJECTS : PROJECTS.filter((p) => p.label === activeFilter),
+    [activeFilter]
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -113,12 +136,41 @@ export default function Work() {
           </div>
         </section>
 
-        <main className="space-y-20 sm:space-y-24 md:space-y-32">
-          {PROJECTS.map((project, i) => (
-            <Reveal key={project.id} delay={i * 0.05}>
-              <ProjectArticle project={project} />
-            </Reveal>
+        {/* FILTERS */}
+        <div className="flex flex-wrap gap-3 mb-16 pb-8 border-b border-zinc-100 dark:border-zinc-800">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              onClick={() => setActiveFilter(f)}
+              className={`text-[9px] uppercase tracking-[0.3em] px-4 py-2 rounded-sm transition-all duration-300 font-medium ${
+                activeFilter === f
+                  ? "bg-emerald-800 text-white"
+                  : "text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500"
+              }`}
+            >
+              {f === "All" ? "All Projects" : f.toLowerCase()}
+            </button>
           ))}
+          <span className="text-[9px] font-mono text-zinc-400 dark:text-zinc-600 self-center ml-auto">
+            {filtered.length} of {PROJECTS.length}
+          </span>
+        </div>
+
+        <main className="space-y-20 sm:space-y-24 md:space-y-32">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project, i) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <ProjectArticle project={project} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </main>
 
         <footer className="mt-20 sm:mt-32 border-t border-zinc-100 dark:border-zinc-800 pt-24 sm:pt-32 pb-16">

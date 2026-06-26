@@ -5,6 +5,7 @@ import { FooterLink } from "./components/FooterLink";
 import Reveal from "./components/Reveal";
 import PageTransition from "./components/PageTransition";
 import Testimonials from "./components/Testimonials";
+import Writing from "./components/Writing";
 import { PROJECTS, SKILLS, FOOTER_LINKS, LINKS } from "./constants";
 
 export const metadata: Metadata = {
@@ -90,6 +91,18 @@ export default function Home() {
         </section></Reveal>
 
         <Reveal delay={0.3}>
+          <section className="mb-32" aria-labelledby="writing-heading">
+            <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mb-20 border-b border-zinc-100 dark:border-zinc-800 pb-6">
+              <h2 id="writing-heading" className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium">
+                WRITING
+              </h2>
+              <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono italic">Thoughts &amp; Reflections</span>
+            </div>
+            <Writing />
+          </section>
+        </Reveal>
+
+        <Reveal delay={0.35}>
           <section className="mb-32" aria-labelledby="testimonials-heading">
             <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mb-20 border-b border-zinc-100 dark:border-zinc-800 pb-6">
               <h2 id="testimonials-heading" className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium">

@@ -116,8 +116,8 @@ export default function Work() {
                 A curated selection of digital architectures, focusing on <span className="text-zinc-900 dark:text-zinc-100 italic">functional beauty</span> and technical resilience.
               </p>
               <div className="flex items-start gap-4 pt-4 sm:pt-6 border-l-2 border-zinc-100 dark:border-zinc-800 pl-4 sm:pl-6">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-emerald-800 font-medium mt-1 sm:mt-2">Note:</p>
-                <p className="text-xs sm:text-[10px] text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-sm sm:max-w-md italic">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-emerald-800 font-medium mt-1 sm:mt-2 italic">Note:</p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-sm sm:max-w-md italic">
                   All interfaces displayed here utilize synthetic data and non-representational assets.
                   Any corporate information or personal records shown are for demonstrative purposes within a sandbox environment.
                 </p>

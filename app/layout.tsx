@@ -17,9 +17,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dlampatricio.github.io'),
   title: 'David Lam — Computer Scientist',
   description:
     'Computer Science at UCLV. Specialized in digital resilience and functional beauty through Full Stack Development and DevOps.',
+  openGraph: {
+    siteName: 'David Lam',
+  },
   robots: {
     index: true,
     follow: true,

@@ -4,7 +4,7 @@ export const LINKS = {
   github: "https://github.com/dlampatricio",
   linkedin: "https://linkedin.com/in/dlampatricio",
   email: "mailto:dlampatricio@gmail.com",
-  cv: "/cv-david-lam.pdf",
+  cv: "/david_lam_cv.pdf",
 } as const;
 
 export const PROJECTS: Project[] = [

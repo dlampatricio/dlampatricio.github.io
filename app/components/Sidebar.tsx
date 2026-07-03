@@ -87,9 +87,9 @@ export function Sidebar() {
         <div className="space-y-32">
           <header>
             <Link href="/" className="group block pl-1" onClick={() => setIsOpen(false)}>
-              <h1 className="text-2xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-800 transition-colors mb-1">
+              <div className="text-2xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-800 transition-colors mb-1">
                 David Lam<span className="text-emerald-800 font-serif">.</span>
-              </h1>
+              </div>
               <p className="text-[9px] uppercase tracking-[0.5em] text-zinc-400 dark:text-zinc-500 font-medium leading-none">
                 Computer Scientist
               </p>

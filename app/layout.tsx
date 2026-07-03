@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'Computer Science at UCLV. Specialized in digital resilience and functional beauty through Full Stack Development and DevOps.',
   openGraph: {
     siteName: 'David Lam',
+    images: '/opengraph-image.jpg',
   },
   robots: {
     index: true,

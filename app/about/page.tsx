@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     title: "About — David Lam",
     description:
       "Computer Science student at UCLV. Full Stack Developer & DevOps Architect.",
+    images: '/opengraph-image.jpg',
   },
 };
 

@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: 'David Lam — Full Stack Developer & DevOps Architect',
   description:
     'Portfolio of David Lam. Computer Science student at UCLV. Specialized in digital resilience and functional beauty through Full Stack Development and DevOps.',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'David Lam — Full Stack Developer & DevOps Architect',
     description:

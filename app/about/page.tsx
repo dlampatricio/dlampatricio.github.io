@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "About — David Lam",
   description:
     "Computer Science student at UCLV. Full Stack Developer & DevOps Architect. Based in Cuba, available worldwide.",
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About — David Lam",
     description:

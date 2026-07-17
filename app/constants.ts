@@ -7,7 +7,40 @@ export const LINKS = {
   cv: "/david_lam_cv.pdf",
 } as const;
 
+export const SELECTED_PROJECT_IDS = ['better-reports', 'lamubi', 'florale'] as const;
+
 export const PROJECTS: Project[] = [
+  {
+    id: 'better-reports-docs',
+    title: 'Better Reports Docs',
+    year: '2026',
+    desc: 'A VitePress-powered documentation site for Better Reports. Features comprehensive guides, API reference, deployment instructions, and interactive examples — all authored in Markdown.',
+    tags: ['VitePress', 'TypeScript', 'Node.js', 'Markdown', 'Vue'],
+    category: 'Documentation • Site',
+    label: 'FEATURED',
+    github: 'https://github.com/dlampatricio/better-reports-docs',
+    live: 'https://better-reports.pages.dev',
+    images: [
+      { src: '/better_reports_docs/better_reports_docs_home.webp', alt: 'Better Reports Docs Home' },
+      { src: '/better_reports_docs/better_reports_docs_examples.webp', alt: 'Better Reports Docs Examples' },
+    ],
+  },
+  {
+    id: 'better-reports',
+    title: 'Better Reports',
+    year: '2026',
+    desc: 'A self-hosted template engine for document generation powered by Typst. Compiles Typst markup into PDFs via a Rust + NAPI-RS native addon — no Chromium or external services required. Features live editing, template management, asset and package handling.',
+    tags: ['Rust', 'React', 'TypeScript', 'Tailwind CSS', 'Docker', 'Monaco Editor', 'Node.js'],
+    category: 'App • Template Engine',
+    label: 'FEATURED',
+    github: 'https://github.com/dlampatricio/better-reports',
+    live: null,
+    images: [
+      { src: '/better_reports/better_reports_dashboard.webp', alt: 'Better Reports Dashboard' },
+      { src: '/better_reports/better_reports_new.webp', alt: 'Better Reports New Report' },
+      { src: '/better_reports/better_reports_packages.webp', alt: 'Better Reports Packages' },
+    ],
+  },
   {
     id: 'lamubi',
     title: 'La Mubi',

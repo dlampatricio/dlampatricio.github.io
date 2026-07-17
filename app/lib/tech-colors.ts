@@ -26,6 +26,12 @@ export const TECH_COLORS: Record<string, string> = {
   Swing: "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
   "OOP": "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900/40 dark:text-fuchsia-300",
   PySide6: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300",
+  Rust: "bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-300",
+  VitePress: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300",
+  Vue: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
+  "Node.js": "bg-lime-100 text-lime-800 dark:bg-lime-900/40 dark:text-lime-300",
+  "Monaco Editor": "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
+  Markdown: "bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200",
 };
 
 export function getTechColor(tech: string): string {

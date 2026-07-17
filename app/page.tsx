@@ -5,7 +5,7 @@ import { ProjectItem } from './components/ProjectItem';
 import Reveal from './components/Reveal';
 import { SkillGroup } from './components/SkillGroup';
 import Testimonials from './components/Testimonials';
-import { FOOTER_LINKS, LINKS, PROJECTS, SKILLS } from './constants';
+import { FOOTER_LINKS, LINKS, PROJECTS, SELECTED_PROJECT_IDS, SKILLS } from './constants';
 
 export const metadata: Metadata = {
   title: 'David Lam — Full Stack Developer & DevOps Architect',
@@ -114,9 +114,12 @@ export default function Home() {
             </div>
 
             <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
-              {PROJECTS.slice(0, 3).map((project) => (
-                <ProjectItem key={project.id} {...project} />
-              ))}
+              {SELECTED_PROJECT_IDS
+                .map(id => PROJECTS.find(p => p.id === id))
+                .filter(Boolean)
+                .map((project) => (
+                  <ProjectItem key={project!.id} {...project!} />
+                ))}
             </div>
           </section>
         </Reveal>

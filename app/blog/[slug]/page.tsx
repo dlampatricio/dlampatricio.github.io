@@ -38,28 +38,28 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <PageTransition className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-emerald-800 selection:text-white antialiased">
-      <article className="max-w-4xl mx-auto px-8 md:px-16 py-32 md:py-48">
-        <header className="mb-24">
+      <article className="max-w-4xl mx-auto px-6 sm:px-8 md:px-16 py-24 sm:py-32 md:py-48">
+        <header className="mb-16 sm:mb-24">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors mb-12 font-medium"
+            className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors mb-8 sm:mb-12 font-medium"
           >
             &larr; Back to writing
           </Link>
-          <div className="space-y-8">
-            <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 font-medium">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 font-medium">
               <time dateTime={post.date}>{post.date}</time>
-              <span className="w-px h-3 bg-zinc-200 dark:bg-zinc-700" aria-hidden="true" />
-              <div className="flex gap-3">
+              <span className="hidden sm:block w-px h-3 bg-zinc-200 dark:bg-zinc-700" aria-hidden="true" />
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {post.tags.map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 leading-[1.15] lowercase max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 leading-[1.15] lowercase max-w-3xl">
               {post.title}
             </h1>
-            <p className="text-lg sm:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-2xl">
               {post.excerpt}
             </p>
           </div>
@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
           <MarkdownRenderer content={post.content} />
         </div>
 
-        <footer className="mt-32 pt-12 border-t border-zinc-100 dark:border-zinc-800">
+        <footer className="mt-20 sm:mt-32 pt-8 sm:pt-12 border-t border-zinc-100 dark:border-zinc-800">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-emerald-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-medium"

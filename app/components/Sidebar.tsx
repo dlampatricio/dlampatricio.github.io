@@ -100,6 +100,7 @@ export function Sidebar() {
             <NavLink href="/" label="Home" onClick={() => setIsOpen(false)} />
             <NavLink href="/about" label="About" onClick={() => setIsOpen(false)} />
             <NavLink href="/work" label="Work" onClick={() => setIsOpen(false)} />
+            <NavLink href="/blog" label="Writing" onClick={() => setIsOpen(false)} />
             <NavLink href="/contact" label="Contact" onClick={() => setIsOpen(false)} />
           </div>
         </div>

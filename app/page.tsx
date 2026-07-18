@@ -5,6 +5,7 @@ import { ProjectItem } from './components/ProjectItem';
 import Reveal from './components/Reveal';
 import { SkillGroup } from './components/SkillGroup';
 import Testimonials from './components/Testimonials';
+import Writing from './components/Writing';
 import { FOOTER_LINKS, LINKS, PROJECTS, SELECTED_PROJECT_IDS, SKILLS } from './constants';
 
 export const metadata: Metadata = {
@@ -157,17 +158,19 @@ export default function Home() {
           </section>
         </Reveal>
 
-        {/* <Reveal delay={0.3}>
+        <Reveal delay={0.3}>
           <section className="mb-32" aria-labelledby="writing-heading">
             <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mb-20 border-b border-zinc-100 dark:border-zinc-800 pb-6">
               <h2 id="writing-heading" className="text-[10px] uppercase tracking-[0.5em] text-emerald-800 font-medium">
                 WRITING
               </h2>
-              <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono italic" aria-hidden="true">Thoughts &amp; Reflections</span>
+              <a href="/blog" className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors font-medium">
+                View all &rarr;
+              </a>
             </div>
             <Writing />
           </section>
-        </Reveal> */}
+        </Reveal>
 
         <Reveal delay={0.4}>
           <footer className="border-t border-zinc-100 dark:border-zinc-800 pt-32 pb-16">

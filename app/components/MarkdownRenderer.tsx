@@ -45,7 +45,8 @@ const components: Components = {
     </li>
   ),
   code: ({ children, className, ...props }) => {
-    const isInline = !className;
+    const content = Array.isArray(children) ? children.join('') : String(children);
+    const isInline = !className && !content.includes('\n');
     if (isInline) {
       return (
         <code className="px-1.5 py-0.5 text-[13px] sm:text-sm font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded" {...props}>
@@ -54,13 +55,16 @@ const components: Components = {
       );
     }
     return (
-      <pre className="overflow-x-auto p-4 sm:p-6 mb-6 sm:mb-8 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm">
-        <code className={`text-[13px] sm:text-sm font-mono leading-relaxed text-zinc-800 dark:text-zinc-200 ${className ?? ''}`} {...props}>
-          {children}
-        </code>
-      </pre>
+      <code className={`text-[13px] sm:text-sm font-mono leading-relaxed text-zinc-800 dark:text-zinc-200 ${className ?? ''}`} {...props}>
+        {children}
+      </code>
     );
   },
+  pre: ({ children, ...props }) => (
+    <pre className="overflow-x-auto p-4 sm:p-6 mb-6 sm:mb-8 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-sm" {...props}>
+      {children}
+    </pre>
+  ),
   hr: (props) => (
     <hr className="my-10 sm:my-12 md:my-16 border-zinc-200 dark:border-zinc-800" {...props} />
   ),

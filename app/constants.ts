@@ -216,6 +216,11 @@ export const TESTIMONIALS = [
 
 export const WRITING: WritingEntry[] = [
   {
+    title: "La Mubi: A Movie Charades Game Born from Real Social Friction",
+    excerpt: "How a night out with friends — and the frustration of bad party apps — led to a local multiplayer game that solves role assignment, movie selection, and impostor detection in one sweep.",
+    url: "/blog/lamubi",
+  },
+  {
     title: "Floralé: From Social Media Chaos to a Centralized Commerce System",
     excerpt: "How a WhatsApp-native e-commerce architecture helped an artisan reclaim time, consolidate five sales channels, and double down on what matters — the craft.",
     url: "/blog/florale-case-study",

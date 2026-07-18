@@ -4,7 +4,7 @@ import { WRITING } from "../constants";
 export default function Writing() {
   return (
     <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
-      {WRITING.map((entry) => (
+      {WRITING.slice(0, 3).map((entry) => (
         <article key={entry.title} className="py-6 sm:py-8 first:pt-0 last:pb-0 group">
           {entry.url ? (
             <Link href={entry.url} className="block space-y-2 sm:space-y-3">

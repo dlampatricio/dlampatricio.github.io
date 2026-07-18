@@ -216,14 +216,9 @@ export const TESTIMONIALS = [
 
 export const WRITING: WritingEntry[] = [
   {
-    title: "Building Resilient Systems: Lessons from Full-Stack Architecture",
-    excerpt: "Exploring how early decisions in system design ripple through the entire development lifecycle — and why clean architecture pays exponential dividends.",
-    url: "/blog/resilient-systems",
-  },
-  {
-    title: "The Cuban School of Computing: A Technical Perspective",
-    excerpt: "Reflections on the rigorous mathematical foundation of CS education in Cuba and how it shapes a unique approach to problem-solving.",
-    url: "/blog/cuban-school-of-computing",
+    title: "Floralé: From Social Media Chaos to a Centralized Commerce System",
+    excerpt: "How a WhatsApp-native e-commerce architecture helped an artisan reclaim time, consolidate five sales channels, and double down on what matters — the craft.",
+    url: "/blog/florale-case-study",
   },
   {
     title: "Why I Chose Next.js for Every Project (and When I Wouldn't)",
@@ -231,9 +226,9 @@ export const WRITING: WritingEntry[] = [
     url: "/blog/why-nextjs",
   },
   {
-    title: "Floralé: From Social Media Chaos to a Centralized Commerce System",
-    excerpt: "How a WhatsApp-native e-commerce architecture helped an artisan reclaim time, consolidate five sales channels, and double down on what matters — the craft.",
-    url: "/blog/florale-case-study",
+    title: "The Cuban School of Computing: A Technical Perspective",
+    excerpt: "Reflections on the rigorous mathematical foundation of CS education in Cuba and how it shapes a unique approach to problem-solving.",
+    url: "/blog/cuban-school-of-computing",
   },
 ];
 

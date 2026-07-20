@@ -98,4 +98,4 @@ But the qualitative difference matters more. Template authors — including non-
 
 ---
 
-_Better Reports is available on [GitHub](https://github.com/dlampatricio/better-reports). The documentation is at [better-reports.pages.dev](https://better-reports.pages.dev)._
+_Better Reports is available on [GitHub](https://github.com/dlampatricio/better-reports). The documentation is at [better-reports.vercel.app](https://better-reports.vercel.app)._

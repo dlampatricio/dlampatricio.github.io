@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
     category: 'Documentation • Site',
     label: 'FEATURED',
     github: 'https://github.com/dlampatricio/better-reports-docs',
-    live: 'https://better-reports.pages.dev',
+    live: 'https://better-reports-docs.vercel.app',
     images: [
       { src: '/better_reports_docs/better_reports_docs_home.webp', alt: 'Better Reports Docs Home' },
       { src: '/better_reports_docs/better_reports_docs_examples.webp', alt: 'Better Reports Docs Examples' },

@@ -216,6 +216,11 @@ export const TESTIMONIALS = [
 
 export const WRITING: WritingEntry[] = [
   {
+    title: "Better Reports: Replacing Pentaho and JSReport with a Rust-Powered Template Engine",
+    excerpt: "Why I built a self-hosted document generation engine from scratch — and how Typst, Rust, and NAPI-RS delivered faster compilation than the established alternatives.",
+    url: "/blog/better-reports",
+  },
+  {
     title: "La Mubi: A Movie Charades Game Born from Real Social Friction",
     excerpt: "How a night out with friends — and the frustration of bad party apps — led to a local multiplayer game that solves role assignment, movie selection, and impostor detection in one sweep.",
     url: "/blog/lamubi",

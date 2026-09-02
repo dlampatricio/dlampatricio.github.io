@@ -1,15 +1,32 @@
-import type { Project, WritingEntry } from "./types";
+import type { Project, WritingEntry } from './types';
 
 export const LINKS = {
-  github: "https://github.com/dlampatricio",
-  linkedin: "https://linkedin.com/in/dlampatricio",
-  email: "mailto:dlampatricio@gmail.com",
-  cv: "/david_lam_cv.pdf",
+  github: 'https://github.com/dlampatricio',
+  linkedin: 'https://linkedin.com/in/dlampatricio',
+  email: 'mailto:dlampatricio@gmail.com',
+  cv: '/david_lam_cv.pdf',
 } as const;
 
 export const SELECTED_PROJECT_IDS = ['better-reports', 'lamubi', 'florale'] as const;
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'la-llave',
+    title: 'La Llave',
+    year: '2026',
+    desc: 'A fullstack e-commerce platform for a local hardware store. Features a public product catalog, search, WhatsApp quote cart, and a complete admin panel for managing products, services, images, and site content.',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'Supabase', 'TypeScript'],
+    category: 'E-commerce • Fullstack',
+    label: 'FEATURED',
+    github: 'https://github.com/dlampatricio/la_llave',
+    live: 'https://lallaveferreteria.vercel.app',
+    images: [
+      { src: '/lallave/lallave_products.webp', alt: 'La Llave Products' },
+      { src: '/lallave/lallave_product1.webp', alt: 'La Llave Product Detail 1' },
+      { src: '/lallave/lallave_product2.webp', alt: 'La Llave Product Detail 2' },
+      { src: '/lallave/lallave_home.webp', alt: 'La Llave Home' },
+    ],
+  },
   {
     id: 'better-reports-docs',
     title: 'Better Reports Docs',
@@ -21,8 +38,14 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/dlampatricio/better-reports-docs',
     live: 'https://better-reports-docs.vercel.app',
     images: [
-      { src: '/better_reports_docs/better_reports_docs_home.webp', alt: 'Better Reports Docs Home' },
-      { src: '/better_reports_docs/better_reports_docs_examples.webp', alt: 'Better Reports Docs Examples' },
+      {
+        src: '/better_reports_docs/better_reports_docs_home.webp',
+        alt: 'Better Reports Docs Home',
+      },
+      {
+        src: '/better_reports_docs/better_reports_docs_examples.webp',
+        alt: 'Better Reports Docs Examples',
+      },
     ],
   },
   {
@@ -104,9 +127,18 @@ export const PROJECTS: Project[] = [
     live: 'https://broncosmarket.vercel.app',
     images: [
       { src: '/broncos_market/light/broncosmarket.vercel.app_.webp', alt: 'Broncos Market Home' },
-      { src: '/broncos_market/light/broncosmarket.vercel.app_cart.webp', alt: 'Broncos Market Cart' },
-      { src: '/broncos_market/light/broncosmarket.vercel.app_category_carnicos.webp', alt: 'Broncos Market Category' },
-      { src: '/broncos_market/light/broncosmarket.vercel.app_product_jamon-pierna.webp', alt: 'Broncos Market Product' },
+      {
+        src: '/broncos_market/light/broncosmarket.vercel.app_cart.webp',
+        alt: 'Broncos Market Cart',
+      },
+      {
+        src: '/broncos_market/light/broncosmarket.vercel.app_category_carnicos.webp',
+        alt: 'Broncos Market Category',
+      },
+      {
+        src: '/broncos_market/light/broncosmarket.vercel.app_product_jamon-pierna.webp',
+        alt: 'Broncos Market Product',
+      },
     ],
   },
   {
@@ -121,7 +153,10 @@ export const PROJECTS: Project[] = [
     live: null,
     images: [
       { src: '/angel_pets/home.webp', alt: 'Angel Pets Home' },
-      { src: '/angel_pets/dashboard_balance_services-balance.webp', alt: 'Angel Pets Dashboard Balance' },
+      {
+        src: '/angel_pets/dashboard_balance_services-balance.webp',
+        alt: 'Angel Pets Dashboard Balance',
+      },
       { src: '/angel_pets/dashboard_sales_animals.webp', alt: 'Angel Pets Dashboard Sales' },
       { src: '/angel_pets/dashboard_services_services.webp', alt: 'Angel Pets Dashboard Services' },
     ],
@@ -203,42 +238,55 @@ export const SKILLS = [
 
 export const TESTIMONIALS = [
   {
-    quote: "David brought a level of technical precision and architectural thinking that transformed our platform. His ability to bridge academic theory with production-ready code is exceptional.",
-    author: "Prof. Alejandro Rodríguez",
-    role: "Computer Science Department, UCLV",
+    quote:
+      'David brought a level of technical precision and architectural thinking that transformed our platform. His ability to bridge academic theory with production-ready code is exceptional.',
+    author: 'Prof. Alejandro Rodríguez',
+    role: 'Computer Science Department, UCLV',
   },
   {
-    quote: "Working with David was remarkable. He doesn't just write code — he designs systems. His attention to performance and clean architecture made a significant impact on our e-commerce platform.",
-    author: "María González",
-    role: "Project Lead, Freelance Collaboration",
+    quote:
+      "Working with David was remarkable. He doesn't just write code — he designs systems. His attention to performance and clean architecture made a significant impact on our e-commerce platform.",
+    author: 'María González',
+    role: 'Project Lead, Freelance Collaboration',
   },
 ] as const;
 
 export const WRITING: WritingEntry[] = [
   {
-    title: "Better Reports: Replacing Pentaho and JSReport with a Rust-Powered Template Engine",
-    excerpt: "Why I built a self-hosted document generation engine from scratch — and how Typst, Rust, and NAPI-RS delivered faster compilation than the established alternatives.",
-    url: "/blog/better-reports",
+    title: 'Better Reports: Replacing Pentaho and JSReport with a Rust-Powered Template Engine',
+    excerpt:
+      'Why I built a self-hosted document generation engine from scratch — and how Typst, Rust, and NAPI-RS delivered faster compilation than the established alternatives.',
+    url: '/blog/better-reports',
   },
   {
-    title: "La Mubi: A Movie Charades Game Born from Real Social Friction",
-    excerpt: "How a night out with friends — and the frustration of bad party apps — led to a local multiplayer game that solves role assignment, movie selection, and impostor detection in one sweep.",
-    url: "/blog/lamubi",
+    title: 'La Mubi: A Movie Charades Game Born from Real Social Friction',
+    excerpt:
+      'How a night out with friends — and the frustration of bad party apps — led to a local multiplayer game that solves role assignment, movie selection, and impostor detection in one sweep.',
+    url: '/blog/lamubi',
   },
   {
-    title: "Floralé: From Social Media Chaos to a Centralized Commerce System",
-    excerpt: "How a WhatsApp-native e-commerce architecture helped an artisan reclaim time, consolidate five sales channels, and double down on what matters — the craft.",
-    url: "/blog/florale-case-study",
+    title: 'Floralé: From Social Media Chaos to a Centralized Commerce System',
+    excerpt:
+      'How a WhatsApp-native e-commerce architecture helped an artisan reclaim time, consolidate five sales channels, and double down on what matters — the craft.',
+    url: '/blog/florale-case-study',
   },
   {
     title: "Why I Chose Next.js for Every Project (and When I Wouldn't)",
-    excerpt: "A practical breakdown of framework decisions across 8 projects — from static sites to complex dashboards — and the tradeoffs that matter.",
-    url: "/blog/why-nextjs",
+    excerpt:
+      'A practical breakdown of framework decisions across 8 projects — from static sites to complex dashboards — and the tradeoffs that matter.',
+    url: '/blog/why-nextjs',
   },
   {
     title: "The Cuban School of Computing: A Technical Perspective",
-    excerpt: "Reflections on the rigorous mathematical foundation of CS education in Cuba and how it shapes a unique approach to problem-solving.",
+    excerpt:
+      "Reflections on the rigorous mathematical foundation of CS education in Cuba and how it shapes a unique approach to problem-solving.",
     url: "/blog/cuban-school-of-computing",
+  },
+  {
+    title: "La Llave: Replacing Social Media Chaos with a Single Source of Truth",
+    excerpt:
+      "How a hardware store owner drowning in cross-platform posting found clarity — and time back — through a centralized e-commerce system with WhatsApp-native sales.",
+    url: "/blog/la-llave",
   },
 ];
 

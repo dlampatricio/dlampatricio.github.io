@@ -21,10 +21,11 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/dlampatricio/la_llave',
     live: 'https://lallaveferreteria.vercel.app',
     images: [
+      { src: '/lallave/og-image.png', alt: 'La Llave Preview' },
+      { src: '/lallave/lallave_home.webp', alt: 'La Llave Home' },
       { src: '/lallave/lallave_products.webp', alt: 'La Llave Products' },
       { src: '/lallave/lallave_product1.webp', alt: 'La Llave Product Detail 1' },
       { src: '/lallave/lallave_product2.webp', alt: 'La Llave Product Detail 2' },
-      { src: '/lallave/lallave_home.webp', alt: 'La Llave Home' },
     ],
   },
   {
@@ -59,6 +60,7 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/dlampatricio/better-reports',
     live: null,
     images: [
+      { src: '/better_reports/og-image.png', alt: 'Better Reports Preview' },
       { src: '/better_reports/better_reports_dashboard.webp', alt: 'Better Reports Dashboard' },
       { src: '/better_reports/better_reports_new.webp', alt: 'Better Reports New Report' },
       { src: '/better_reports/better_reports_packages.webp', alt: 'Better Reports Packages' },
@@ -75,6 +77,7 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/dlampatricio/lamubi',
     live: 'https://lamubi.vercel.app',
     images: [
+      { src: '/lamubi/opengraph-image.png', alt: 'La Mubi Preview' },
       { src: '/lamubi/lamubi_home.webp', alt: 'La Mubi Home Screen' },
       { src: '/lamubi/lamubi_lobby.webp', alt: 'La Mubi Lobby' },
       { src: '/lamubi/lamubi_handoff.webp', alt: 'La Mubi Handoff Screen' },

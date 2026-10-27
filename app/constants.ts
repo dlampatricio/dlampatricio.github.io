@@ -11,6 +11,23 @@ export const SELECTED_PROJECT_IDS = ['better-reports', 'lamubi', 'florale'] as c
 
 export const PROJECTS: Project[] = [
   {
+    id: 'vida-ebenezer',
+    title: 'Vida Ebenezer',
+    year: '2026',
+    desc: 'A responsive landing page for Vida Ebenezer, an event decoration business specializing in weddings, birthdays, and corporate events. Features a service showcase, work gallery with lightbox, mood board, FAQ accordion, and a multi-step contact form with validation and Pinterest board sharing.',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    category: 'Landing Page • Static Site',
+    label: 'FEATURED',
+    github: 'https://github.com/dlampatricio/vida_ebenezer',
+    live: 'https://vida-ebenezer.vercel.app',
+    images: [
+      { src: '/vida_ebenezer/hero_image.webp', alt: 'Vida Ebenezer Hero' },
+      { src: '/vida_ebenezer/1.webp', alt: 'Vida Ebenezer Gallery' },
+      { src: '/vida_ebenezer/2.webp', alt: 'Vida Ebenezer Services' },
+      { src: '/vida_ebenezer/3.webp', alt: 'Vida Ebenezer Details' },
+    ],
+  },
+  {
     id: 'la-llave',
     title: 'La Llave',
     year: '2026',
@@ -280,16 +297,16 @@ export const WRITING: WritingEntry[] = [
     url: '/blog/why-nextjs',
   },
   {
-    title: "The Cuban School of Computing: A Technical Perspective",
+    title: 'The Cuban School of Computing: A Technical Perspective',
     excerpt:
-      "Reflections on the rigorous mathematical foundation of CS education in Cuba and how it shapes a unique approach to problem-solving.",
-    url: "/blog/cuban-school-of-computing",
+      'Reflections on the rigorous mathematical foundation of CS education in Cuba and how it shapes a unique approach to problem-solving.',
+    url: '/blog/cuban-school-of-computing',
   },
   {
-    title: "La Llave: Replacing Social Media Chaos with a Single Source of Truth",
+    title: 'La Llave: Replacing Social Media Chaos with a Single Source of Truth',
     excerpt:
-      "How a hardware store owner drowning in cross-platform posting found clarity — and time back — through a centralized e-commerce system with WhatsApp-native sales.",
-    url: "/blog/la-llave",
+      'How a hardware store owner drowning in cross-platform posting found clarity — and time back — through a centralized e-commerce system with WhatsApp-native sales.',
+    url: '/blog/la-llave',
   },
 ];
 

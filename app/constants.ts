@@ -21,7 +21,6 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/dlampatricio/vida_ebenezer',
     live: 'https://vida-ebenezer.vercel.app',
     images: [
-      { src: '/vida_ebenezer/hero_image.webp', alt: 'Vida Ebenezer Hero' },
       { src: '/vida_ebenezer/1.webp', alt: 'Vida Ebenezer Gallery' },
       { src: '/vida_ebenezer/2.webp', alt: 'Vida Ebenezer Services' },
       { src: '/vida_ebenezer/3.webp', alt: 'Vida Ebenezer Details' },

@@ -32,6 +32,10 @@ export const TECH_COLORS: Record<string, string> = {
   "Node.js": "bg-lime-100 text-lime-800 dark:bg-lime-900/40 dark:text-lime-300",
   "Monaco Editor": "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
   Markdown: "bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200",
+  Rich: "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300",
+  "GitHub Actions": "bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200",
+  pytest: "bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-300",
+  "fast.com API": "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300",
 };
 
 export function getTechColor(tech: string): string {

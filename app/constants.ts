@@ -11,6 +11,21 @@ export const SELECTED_PROJECT_IDS = ['better-reports', 'lamubi', 'florale'] as c
 
 export const PROJECTS: Project[] = [
   {
+    id: 'nauta-monitor',
+    title: 'Nauta Monitor',
+    year: '2026',
+    desc: "A command-line monitor for Nauta Hogar, Cuba's prepaid home internet service. It replicates the ETECSA portal's session flow to track balance and remaining hours, forecasts depletion from real usage, and measures international bandwidth through fast.com — with JSONL history, low-balance alerts, and a zero-cost Docker deployment for a repurposed laptop.",
+    tags: ['Python', 'Rich', 'Docker', 'GitHub Actions', 'pytest', 'fast.com API'],
+    category: 'Systems • Observability',
+    label: 'FEATURED',
+    github: 'https://github.com/dlampatricio/nauta_monitor',
+    docs: 'https://dlampatricio.github.io/nauta_monitor',
+    live: null,
+    images: [
+      { src: '/nauta_monitor/nauta_monitor.webp', alt: 'Nauta Monitor terminal dashboard' },
+    ],
+  },
+  {
     id: 'vida-ebenezer',
     title: 'Vida Ebenezer',
     year: '2026',
@@ -271,6 +286,12 @@ export const TESTIMONIALS = [
 ] as const;
 
 export const WRITING: WritingEntry[] = [
+  {
+    title: "Nauta Monitor: Building Visibility for a Prepaid Network With No API",
+    excerpt:
+      'How a retired laptop and a pay-per-hour Nauta Hogar connection became a self-hosted CLI that tracks balance, forecasts depletion, and measures real bandwidth — without paid infrastructure.',
+    url: '/blog/nauta-monitor',
+  },
   {
     title: 'Better Reports: Replacing Pentaho and JSReport with a Rust-Powered Template Engine',
     excerpt:

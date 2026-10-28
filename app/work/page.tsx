@@ -11,8 +11,16 @@ import type { Project } from "../types";
 
 const FILTERS = ["All", "FEATURED", "ARCHIVE", "ACADEMIC"] as const;
 
-function ProjectLinks({ github, live }: { github: string | null; live: string | null }) {
-  if (!github && !live) return null;
+function ProjectLinks({
+  github,
+  docs,
+  live,
+}: {
+  github: string | null;
+  docs?: string | null;
+  live: string | null;
+}) {
+  if (!github && !docs && !live) return null;
   return (
     <div className="flex flex-wrap gap-6 md:justify-end">
       {github && (
@@ -26,6 +34,20 @@ function ProjectLinks({ github, live }: { github: string | null; live: string | 
           <span className="pb-px border-b border-transparent group-hover/link:border-emerald-800/30 transition-all">Source Code</span>
           <svg className="w-3 h-3 opacity-50 group-hover/link:opacity-100 transition-opacity" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      )}
+      {docs && (
+        <a
+          href={docs}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group/link flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 hover:text-emerald-800 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-800 rounded-sm px-1"
+          aria-label="Documentation (opens in new tab)"
+        >
+          <span className="pb-px border-b border-transparent group-hover/link:border-emerald-800/30 transition-all">Documentation</span>
+          <svg className="w-3 h-3 opacity-50 group-hover/link:opacity-100 transition-opacity" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
         </a>
       )}
@@ -79,7 +101,7 @@ function ProjectArticle({ project }: { project: Project }) {
           </div>
         </div>
 
-        <ProjectLinks github={project.github} live={project.live} />
+        <ProjectLinks github={project.github} docs={project.docs} live={project.live} />
       </header>
       <div className={`relative shadow-2xl shadow-zinc-200/50 dark:shadow-black/30 rounded-sm overflow-hidden ${carouselBorder}`}>
         {project.images && <MuseumCarousel images={project.images} />}

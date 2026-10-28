@@ -7,6 +7,7 @@ export interface Project {
   readonly category: string;
   readonly label: string;
   readonly github: string | null;
+  readonly docs?: string | null;
   readonly live: string | null;
   readonly images: readonly { src: string; alt: string }[] | null;
 }

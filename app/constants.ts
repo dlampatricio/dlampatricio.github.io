@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
     docs: 'https://dlampatricio.github.io/nauta_monitor',
     live: null,
     images: [
-      { src: '/nauta_monitor/nauta_monitor.webp', alt: 'Nauta Monitor terminal dashboard' },
+      { src: '/nauta_monitor/nauta_monitor.webp', alt: 'nauta-monitor dashboard' },
     ],
   },
   {
